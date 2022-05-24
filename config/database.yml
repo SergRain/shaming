@@ -24,10 +24,10 @@ test:
 
 production:
   <<: *default
-  host: <%= ENV["DB_HOST"] %>
-  database: <%= ENV["DB_NAME"] %>
-  username: <%= ENV["DB_USER"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
+  host: localhost
+  database: shaming
+  username: root
+  password: DgtJRdp(*akbw6gol
   advisory_locks: false
   variables:
     sql_mode: TRADITIONAL
