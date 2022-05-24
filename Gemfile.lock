@@ -122,6 +122,10 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano3-puma (5.2.0)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (>= 4.0, < 6.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -360,6 +364,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-rvm
+  capistrano3-puma
   capybara
   ckeditor (= 4.3.0)
   debug

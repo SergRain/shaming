@@ -95,6 +95,7 @@ group :development do
   gem "capistrano-chruby"
   gem "capistrano-passenger"
   gem "capistrano-faster-assets"
+  gem "capistrano3-puma"
 end
 
 group :test do
