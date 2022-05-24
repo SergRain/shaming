@@ -179,6 +179,7 @@ GEM
       railties (>= 5.2, < 7.1)
       responders (>= 2, < 4)
     io-console (0.5.11)
+    io-wait (0.1.0)
     irb (1.4.1)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
@@ -311,7 +312,7 @@ GEM
       net-ssh (>= 2.8.0)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
-    strscan (3.0.3)
+    strscan (3.0.0)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (1.2.1)
@@ -368,6 +369,7 @@ DEPENDENCIES
   friendly_id
   image_processing (~> 1.2)
   importmap-rails
+  io-wait (= 0.1.0)
   jbuilder
   jquery-ui-rails
   kaminari
@@ -379,6 +381,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  strscan (= 3.0.0)
   turbo-rails
   tzinfo-data
   web-console
