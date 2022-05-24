@@ -15,7 +15,7 @@ set :deploy_to, "/var/www/dev_mediashaming"
 set :passenger_restart_with_touch, true
 
 #set :rvm_custom_path, "/usr/local/rvm"
-set :rvm_ruby_version, "ruby-3.0.3@shaming"
+set :rvm_ruby_version, "ruby-3.0.1@shaming"
 
 set :log_level, :info
 
