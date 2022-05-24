@@ -1,0 +1,22 @@
+@import '../vars';
+@import '../typography';
+
+.doc-ul {
+    display: block;
+    border-bottom: 1px solid var(--color-accent_border);
+
+    li {
+        display: block;
+        border-top: 1px solid var(--color-accent_border);
+
+        padding: 0.5rem 0;
+
+        @media screen and (min-width: $md) {
+            padding: 1.25rem 0.5rem;
+        }
+
+        @media screen and (min-width: $xxl) {
+            padding: 1.5rem 1rem;
+        }
+    }
+}

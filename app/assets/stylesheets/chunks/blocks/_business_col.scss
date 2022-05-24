@@ -1,0 +1,166 @@
+@import '../vars';
+@import '../typography';
+
+.business {
+    --mx: 1rem;
+
+    &-container {
+        width: calc(100% + var(--mx) * 2);
+        margin-left: calc(-1 * var(--mx));
+        margin-top: 1rem;
+
+        @media screen and (min-width: $md) {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 2rem;
+        }
+    }
+
+    &-swiper-container {
+        .swiper-slide {
+            position: relative;
+            height: auto;
+
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            &::before {
+                background: #F3FAFB;
+            }
+
+            &::after {
+                background: linear-gradient(35.1deg, rgba(0, 160, 223, 0.72) 0%, rgba(0, 160, 223, 0.25) 46.88%, rgba(0, 160, 223, 0) 100%);
+            }
+        }
+
+        .business-card {
+            position: relative;
+            z-index: 2;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: $xl) {
+    .business {
+        &-container {
+            .swiper-wrapper {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items: stretch;
+            }
+
+            .swiper-slide {
+                width: 25%;
+
+                &::before,
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+.business {
+    &-card {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-bottom: 4.5rem;
+        position: relative;
+
+        padding-top: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @media screen and (min-width: $md) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        @media screen and (min-width: $xl) {
+            padding-left: 1.75rem;
+            padding-right: 1.75rem;
+            padding-bottom: 3rem;
+        }
+
+        @media screen and (min-width: $xxl) {
+            padding-left: 3rem;
+            padding-right: 3rem;
+            padding-bottom: 5rem;
+            // padding-top: 5rem;
+        }
+
+        &-data {
+            width: 100%;
+        }
+
+
+        &-pic {
+            text-align: center;
+            margin-bottom: 2.5rem;
+
+            img {
+                display: inline-block;
+            }
+        }
+
+        &-title {
+            margin-bottom: 0.5rem;
+
+            @media screen and (min-width: $md) {
+                margin-bottom: 2rem;
+            }
+
+            @media screen and (min-width: $xl) {
+                margin-bottom: 1.5rem;
+            }
+
+            @media screen and (min-width: $xxl) {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        &-desc {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+
+            @media screen and (min-width: $xl) {
+                height: 0;
+            }
+
+            // @media screen and (min-width: $xxl) {
+            //     font-size: fs(18);
+            // }
+        }
+
+
+        &-btn {
+            padding-top: 1.25rem;
+            margin-bottom: 0;
+            margin-top: auto;
+
+            @media screen and (min-width: $xl) {
+                padding-top: 0;
+            }
+        }
+    }
+}

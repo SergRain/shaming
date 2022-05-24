@@ -1,0 +1,58 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.circle-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+
+    @media screen and (min-width: $xxl) {
+        width: 48px;
+        height: 48px;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        height: 8px;
+        width: 10px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        transition: width 0.25s;
+    }
+
+    &:hover::before {
+        width: 26px;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &_white {
+        border-color: var(--gz-black);
+        &::before {
+            background-image: url('~images/circle-dir.svg');
+        }
+    }
+
+    &_black {
+        border-color: var(--color-back);
+        &::before {
+            background-image: url('~images/circle-dir-white.svg');
+        }
+    }
+
+}

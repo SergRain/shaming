@@ -1,0 +1,369 @@
+.inline-hints img {
+    max-width: 50%;
+}
+
+.post_table {
+    clear: both;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-auto-rows: auto;
+    gap: 4px;
+    box-sizing: border-box;
+    padding: 8px 30px 8px 8px;
+    * {
+        box-sizing: border-box;
+    }
+    .post_table_left_column {
+        grid-column: 1 / 2;
+        width: auto;
+    }
+    .post_table_center_column {
+        grid-column: 2 / 3;
+        width: auto;
+    }
+    .post_table_left_column,
+    .post_table_center_column {
+        border: 1px solid #c5c5c5;
+        background-color: white;
+        padding: 8px 0;
+        border-radius: 5px;
+    }
+    .do_edit {
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #c5c5c5;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.75);
+        background-size: 18px 18px;
+        transition: background-color 0.25s;
+        &:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+    }
+    .has_many_delete {
+        right: 5px;
+        top: 40px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #c5c5c5;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.75);
+        background-size: 16px 16px;
+        transition: background-color 0.25s;
+        &:hover {
+            border-color: red;
+            background-color: rgb(255, 140, 140);
+        }
+    }
+}
+
+.handle.ui-sortable-handle,
+.do_edit,
+.has_many_delete {
+    z-index: 100;
+}
+
+// .post_table {
+//     @import './site-styles/application';
+// }
+@import './chunks/vars';
+@import './chunks/fonts';
+.content_post_sub_block .hint {
+    @import './chunks/reset';
+    @import './chunks/position';
+    @import './chunks/display';
+    @import './chunks/grid';
+    @import './chunks/flex';
+    @import './chunks/spacing';
+    @import './chunks/typography';
+    --color-back: #ffffff;
+    --color-text: #000000;
+    // --color-blue: #00A0DF;
+    ;
+    // --color-accent_light: #029DDB;
+    --color-accent_border: #ACDAF1;
+    --gz-black: #101820;
+    --gray3: #828282;
+    --gray4: #BDBDBD;
+    --gz-blue: #00A0DF;
+    --gz-blue_active: #116AB3;
+    --text-base: 16px;
+    --text-regular: 400;
+    --nav-height: 48px;
+    --col-gap: 1.5rem;
+    @media screen and (min-width: $xl) {
+        --col-gap: 2.5rem;
+    }
+    @media screen and (min-width: $md) {
+        --nav-height: 80px;
+    }
+    --cpx: 1rem;
+    @media screen and (min-width: $md) {
+        --cpx: 2rem;
+    }
+    @media screen and (min-width: $xl) {
+        --cpx: 3rem;
+    }
+    font-family: 'Circe Regular';
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background-color: var(--color-back);
+    font-weight: var(--text-regular);
+    * {
+        color: inherit;
+    }
+    .container {
+        padding-left: var(--cpx);
+        padding-right: var(--cpx);
+        @media screen and (min-width: $md) {
+            padding-left: var(--cpx);
+            padding-right: var(--cpx);
+        }
+        @media screen and (min-width: $xl) {
+            padding-left: var(--cpx);
+            padding-right: var(--cpx);
+        }
+        &_business {
+            padding-top: 2rem;
+            @media screen and (min-width: $md) {
+                padding-bottom: 3rem;
+            }
+            @media screen and (min-width: $xl) {
+                padding-top: 3rem;
+                padding-bottom: 0;
+            }
+            @media screen and (min-width: $xl) {
+                padding-top: 5rem;
+                padding-bottom: 0;
+            }
+        }
+        &_main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            @media screen and (min-width: $xl) {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+        }
+    }
+    .full-height {
+        min-height: calc(100vh - var(--vh-offset, 0px));
+    }
+    .pic-width-layer {
+        picture,
+        img {
+            z-index: 1;
+        }
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        &::before {
+            background: #BDBDBD;
+            @supports (mix-blend-mode: multiply) {
+                mix-blend-mode: multiply;
+            }
+        }
+        &::after {
+            background: linear-gradient(35.1deg, rgba(0, 160, 223, 0.95) 0%, rgba(0, 160, 223, 0.17) 46.88%, rgba(0, 160, 223, 0) 100%);
+        }
+        &_v2 {
+            &::before {
+                background: linear-gradient(73.99deg, #0E1B8A 0%, #ACDAF1 100.79%);
+                @supports (mix-blend-mode: hard-light) {
+                    mix-blend-mode: hard-light;
+                }
+            }
+            &::after {
+                background: linear-gradient(35.1deg, #00A0DF 0%, rgba(0, 160, 223, 0.5) 46.88%, rgba(0, 160, 223, 0) 100%);
+            }
+        }
+    }
+    .abs-fill {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .abs-cover-image {
+        @extend .abs-fill;
+        object-fit: cover;
+    }
+    .sticky-main-nav {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.95);
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #C1DCE6;
+    }
+    .crop-head {
+        width: 100%;
+        overflow: hidden;
+        max-height: 3.3em;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+    .sm-hidden {
+        @media screen and (max-width: $md - 1px) {
+            display: none;
+        }
+    }
+    .sm-visible {
+        display: block;
+        @media screen and (min-width: $md) {
+            display: none;
+        }
+    }
+    .xl-hidden {
+        @media screen and (min-width: $xl) {
+            display: none !important;
+        }
+    }
+    .bg-accent {
+        background-color: #F3FAFB;
+    }
+    .spacer {
+        height: 48px;
+        @media screen and (min-width: $xl) {
+            height: 64px;
+        }
+        @media screen and (min-width: $xxl) {
+            height: 72px;
+        }
+        display: block;
+        width: 100%;
+    }
+    .hover-i-zoom {
+        overflow: hidden;
+        img {
+            transition: transform 0.5s;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            &:hover img {
+                transform: scale(1.15);
+            }
+        }
+    }
+    .ins-head {
+        padding-top: 1rem;
+        @media screen and (min-width: $xxl) {
+            padding-top: 1.5rem;
+        }
+    }
+    .ins-title {
+        padding-top: 2rem;
+        @media screen and (min-width: $md) {
+            padding-top: 3.5rem;
+        }
+        @media screen and (min-width: $xxl) {
+            padding-top: 5.5rem;
+        }
+    }
+    .ins-catalog {
+        padding-top: 2rem;
+        @media screen and (min-width: $md) {
+            padding-top: 3.5rem;
+        }
+        @media screen and (min-width: $xxl) {
+            padding-top: 5.5rem;
+        }
+    }
+    .full-width {
+        width: calc(100% + var(--cpx) * 2);
+        margin-left: calc(var(--cpx) * -1);
+    }
+    @import './chunks/elements/_button.scss';
+    @import './chunks/elements/_link.scss';
+    @import './chunks/elements/_breadcrumbs.scss';
+    @import './chunks/elements/_categories.scss';
+    @import './chunks/elements/_custom_swiper.scss';
+    @import './chunks/elements/_tags_list.scss';
+    @import './chunks/elements/_circle_icon.scss';
+    @import './chunks/elements/_pub_preview.scss';
+    @import './chunks/elements/_base_swiper.scss';
+    @import './chunks/elements/_doc_link.scss';
+    @import './chunks/elements/_gradient_box.scss';
+    @import './chunks/elements/_social_sharing.scss';
+    @import './chunks/elements/_grad_btn.scss';
+    @import './chunks/elements/_load_more_link.scss';
+    @import './chunks/components/_news_preview.scss';
+    @import './chunks/components/_news_preview_simple.scss';
+    @import './chunks/components/_fact_preview.scss';
+    @import './chunks/components/_video_slider.scss';
+    @import './chunks/components/_manager_card.scss';
+    @import './chunks/components/_manager_card_v2.scss';
+    @import './chunks/components/_manager_data.scss';
+    @import './chunks/components/_archive-preview.scss';
+    @import './chunks/components/_document-preview.scss';
+    @import './chunks/components/_contact-card.scss';
+    @import './chunks/blocks/_dropdown_nav_list.scss';
+    @import './chunks/blocks/_main_slide.scss';
+    @import './chunks/blocks/_nav_main.scss';
+    @import './chunks/blocks/_business_col.scss';
+    @import './chunks/blocks/_headbox.scss';
+    @import './chunks/blocks/_main_news.scss';
+    @import './chunks/blocks/_pub_list.scss';
+    @import './chunks/blocks/_media_gallery.scss';
+    @import './chunks/blocks/_analytics.scss';
+    @import './chunks/blocks/_footer.scss';
+    @import './chunks/blocks/_post_article.scss';
+    @import './chunks/blocks/_top_promo.scss';
+    @import './chunks/blocks/_division_goal.scss';
+    @import './chunks/blocks/_activities.scss';
+    @import './chunks/blocks/_management.scss';
+    @import './chunks/blocks/_division_news_slider.scss';
+    @import './chunks/blocks/_archive_list.scss';
+    @import './chunks/blocks/_division_contact.scss';
+    @import './chunks/blocks/_inside_grid.scss';
+    @import './chunks/blocks/_group_index.scss';
+    @import './chunks/blocks/_group_management.scss';
+    @import './chunks/blocks/_group_supervision.scss';
+    @import './chunks/blocks/_group_documents.scss';
+    @import './chunks/blocks/_group_values.scss';
+    @import './chunks/blocks/_group_contacts.scss';
+    @import './chunks/blocks/_dropdown_nav.scss';
+    @import './chunks/blocks/_full_nav.scss';
+    @import './chunks/blocks/_aside_blocks.scss';
+    @import './chunks/blocks/_doc_ul.scss';
+    @import './chunks/blocks/_doc_ul.scss';
+    @import './chunks/blocks/_layout-two-eq-cols.scss';
+    @import './chunks/blocks/_summary_head.scss';
+    @import './chunks/blocks/_investor_slider.scss';
+    @import './chunks/blocks/_dashboard_slide.scss';
+    @import './chunks/blocks/_error_404.scss';
+}
+
+.fact-pic.relative {
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.pic-width-layer_v2 {
+    img {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover;
+    }
+}

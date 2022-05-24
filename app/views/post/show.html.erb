@@ -1,0 +1,47 @@
+<% content_for :header_add_ga do %>
+  <% if !@post.ga.blank? and Rails.env == "production" %>
+  <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', '<%= @post.ga %>');</script>
+    <!-- End Google Tag Manager -->
+  <% end %>
+<% end %>
+<% content_for :body_add_ga do %>
+  <% if !@post.ga.blank? and Rails.env == "production" %>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= @post.ga %>" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <% end %>
+<% end %>
+<% content_for :header_style do %>
+    <%= stylesheet_link_tag "company" %>
+    <%= stylesheet_link_tag "add" %>
+<% end %>
+
+<main>
+    <section id="hero">
+      <div class="hero__wrap container_small">
+        <h2 class="title"><%= @post.header %></h2>
+
+        <div class="hero__image">
+        <%= image_tag "banner_company.png", alt: "Rocket attack on Ukraine" %>
+        <% if @post.logo.attached? %>
+          <%= image_tag @post.logo, alt: "logo", class: "hero__company_logo" %>
+        <% elsif !@post.logo_url.blank? %>
+          <%= image_tag @post.logo_url, alt: "logo", class: "hero__company_logo" %>
+        <% else %>
+        <% end %>
+        </div>
+        </div>
+        </section>
+        <% @post.post_blocks.order(position: :asc).each do |block| %>
+          <%= render partial: "/post/post_blocks/#{block.block_type}", locals: { item: block } %>
+        <% end %>
+  </main>

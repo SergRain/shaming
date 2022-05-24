@@ -1,0 +1,12 @@
+<section id="help">
+      <div class="help__wrap container_small">
+        <h2 class="title">
+          <%= item.name %>
+        </h2>
+        <div class="help__text">
+        <% item.post_sub_right_blocks.order(position: :asc).each do |block| %>
+          <%= raw block.text %>
+        <% end %>
+        </div>
+      </div>
+    </section>

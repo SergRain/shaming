@@ -1,0 +1,24 @@
+.abs-fill {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.abs-cover-image {
+    @extend .abs-fill;
+    object-fit: cover;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.bg-accent {
+    background-color: #F3FAFB;
+}

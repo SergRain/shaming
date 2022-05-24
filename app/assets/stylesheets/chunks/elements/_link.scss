@@ -1,0 +1,59 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.gz-link {
+    --blue_active: #116AB3;
+
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 1;
+
+    transition: color 0.25s;
+
+    span {
+        display: inline-block;
+        width: 12px;
+        height: 1em;
+        position: relative;
+        overflow: hidden;
+        margin-left: 8px;
+        vertical-align: top;
+        transition: width 0.25s;
+
+        svg {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(0, -50%);
+        }
+    }
+
+    &:hover span {
+        width: 26px;
+    }
+
+    &_blue {
+        color: var(--gz-blue);
+        &:active {
+            color: var(--gz-blue_active);
+        }
+    }
+
+    &_black {
+        color: var(--gz-black);
+        &:active {
+            color: var(--color-text);
+        }
+    }
+
+    &_white {
+        color: var(--color-back);
+        &:active {
+            color: var(--color-back);
+        }
+    }
+
+
+}

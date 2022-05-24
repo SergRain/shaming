@@ -1,0 +1,13 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.tags-list {
+    display: block;
+    color: var(--gz-blue);
+
+    li {
+        display: inline;
+        margin-right: 0.5rem;
+    }
+}

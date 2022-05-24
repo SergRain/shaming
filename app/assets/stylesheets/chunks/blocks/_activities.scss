@@ -1,0 +1,69 @@
+@import '../vars';
+@import '../typography';
+
+.activities {
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    gap: 2rem;
+
+    @media screen and (min-width: $md) {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 4rem;
+        row-gap: 3rem;
+    }
+
+    @media screen and (min-width: $xl) {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        row-gap: 5rem;
+    }
+
+    @media screen and (min-width: $xl) {
+        column-gap: 40px;
+    }
+}
+
+.activity {
+    &-card {
+        &::before {
+            content: attr(data-count);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #D3ECF6;
+
+            font-family: 'Circe Bold';
+            font-size: 36px;
+
+            @media screen and (min-width: $md) {
+                font-size: 48px;
+            }
+
+            @media screen and (min-width: $xxl) {
+                font-size: 72px;
+            }
+        }
+
+        padding-top: 2.5rem;
+    }
+
+    &-title,
+    &-text {
+        padding-top: 1.5rem;
+    }
+
+    @media screen and (min-width: $xl) {
+        &-title,
+        &-text {
+            padding-top: 2rem;
+        }
+    }
+
+    @media screen and (min-width: $xl) {
+        &-title {
+            padding-top: 3.5rem;
+        }
+    }
+
+
+}

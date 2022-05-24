@@ -1,0 +1,34 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.breadcrumbs {
+    display: block;
+
+    li {
+        display: inline;
+        color: #868686;
+
+        .top-promo-head & {
+            color: var(--color-white);
+            @extend .font-regular;
+        }
+
+        &::after {
+            content: ' / '
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+
+        a {
+            color: #000000;
+
+            .top-promo-head & {
+                color: var(--color-white);
+                @extend .font-light;
+            }
+        }
+    }
+}

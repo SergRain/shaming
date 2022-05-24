@@ -1,0 +1,71 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.doc {
+    &-link {
+        display: block;
+
+    }
+
+    &-body {
+        // padding: 2rem 2rem 1.5rem;
+        position: relative;
+        z-index: 2;
+
+        padding: 1rem;
+        @media screen and (min-width: $md) {
+            padding: 1.5rem 1rem;
+        }
+        @media screen and (min-width: $xxl) {
+            padding: 1.5rem;
+        }
+
+        &__title {
+            margin-bottom: 1rem;
+        }
+
+        &__info {
+            text-align: right;
+            color: var(--gray3);
+
+            &::after {
+                @extend .icon-font-size;
+                margin-left: 0.5rem;
+                vertical-align: text-bottom;
+            }
+        }
+
+        &__info[data-doc-type="download"]::after {
+            content: '\f0013';
+        }
+        &__info[data-doc-type="external"]::after {
+            content: '\f0018';
+        }
+    }
+
+    &-link:hover &-body__info {
+        color: var(--gz-black);
+    }
+
+    // Layout
+    &-list {
+        display: block;
+        padding-top: 1rem;
+
+        @media screen and (min-width: $md) and (max-width: $xl - 1px) {
+            display: grid;
+            grid-template-rows: max-content;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+    }
+
+    &-item:not(:first-child) {
+        margin-top: 1rem;
+
+        @media screen and (min-width: $md) and (max-width: $xl - 1px) {
+            margin-top: 0;
+        }
+    }
+}

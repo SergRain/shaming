@@ -1,0 +1,22 @@
+@import '../vars';
+@import '../typography';
+
+.layout-two-eq-cols {
+    display: block;
+}
+.layout-two-eq-col:not(:first-child) {
+    margin-top: 2rem;
+}
+
+@media screen and (min-width: $xl) {
+    .layout-two-eq-cols {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2.5rem;
+    }
+
+    .layout-two-eq-col:not(:first-child) {
+        margin-top: 0;
+    }
+}

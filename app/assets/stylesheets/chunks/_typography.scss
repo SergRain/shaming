@@ -1,0 +1,488 @@
+@import 'vars';
+
+.font-light {
+    font-family: 'Circe Light';
+    font-weight: normal;
+}
+
+.font-regular {
+    font-family: 'Circe Regular';
+    font-weight: normal;
+}
+
+.font-bold {
+    font-family: 'Circe Bold';
+    font-weight: normal;
+}
+
+.font-icon {
+    font-family: 'icons';
+    font-weight: normal;
+}
+
+
+.prm {
+    &-h1 {
+        @extend .font-regular;
+        font-size: fs(32);
+        line-height: fs(36);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(72);
+            line-height: fs(74);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(72);
+            line-height: fs(74);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(96);
+            line-height: fs(100);
+        }
+    }
+
+    &-h2 {
+        @extend .font-bold;
+        font-size: fs(28);
+        line-height: fs(30);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(42);
+            line-height: fs(44);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(58);
+            line-height: fs(60);
+        }
+
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(72);
+            line-height: fs(74);
+        }
+    }
+
+    &-h3 {
+        @extend .font-regular;
+        font-size: fs(24);
+        line-height: fs(26);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(28);
+            line-height: fs(30);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(32);
+            line-height: fs(34);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(42);
+            line-height: fs(44);
+        }
+    }
+
+    &-h4 {
+        @extend .font-bold;
+        font-size: fs(14);
+        line-height: fs(16);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+
+        @media screen and (min-width: $md) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(24);
+            line-height: fs(26);
+        }
+    }
+}
+
+.nws {
+    &-h1 {
+        @extend .font-bold;
+        font-size: fs(21);
+        line-height: fs(23);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(28);
+            line-height: fs(30);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(32);
+            line-height: fs(34);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(42);
+            line-height: fs(44);
+        }
+    }
+
+    &-h2 {
+        @extend .font-bold;
+        font-size: fs(18);
+        line-height: fs(20);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(22);
+            line-height: fs(24);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(22);
+            line-height: fs(24);
+        }
+
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(30);
+            line-height: fs(32);
+        }
+    }
+
+    &-h3 {
+        @extend .font-bold;
+        font-size: fs(16);
+        line-height: fs(18);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(24);
+            line-height: fs(26);
+        }
+    }
+
+    &-h4 {
+        @extend .font-regular;
+        font-size: fs(16);
+        line-height: fs(18);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(24);
+            line-height: fs(26);
+        }
+    }
+}
+
+.txt {
+    &-b1 {
+        @extend .font-bold;
+        font-size: fs(18);
+        line-height: fs(21);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(21);
+            line-height: fs(23);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(21);
+            line-height: fs(23);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(30);
+            line-height: fs(33);
+        }
+    }
+
+    &-b2 {
+        @extend .font-regular;
+        font-size: fs(18);
+        line-height: fs(21);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(21);
+            line-height: fs(23);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(21);
+            line-height: fs(23);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(30);
+            line-height: fs(33);
+        }
+    }
+
+    &-b3 {
+        @extend .font-light;
+        font-size: fs(16);
+        line-height: fs(19);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(18);
+            line-height: fs(21);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(18);
+            line-height: fs(21);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(21);
+            line-height: fs(24);
+        }
+
+    }
+
+    &-b4 {
+        @extend .font-light;
+        font-size: fs(14);
+        line-height: fs(16);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(14);
+            line-height: fs(16);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(14);
+            line-height: fs(16);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+    }
+
+    &-b5 {
+        @extend .font-regular;
+        font-size: fs(14);
+        line-height: fs(16);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(14);
+            line-height: fs(16);
+        }
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(14);
+            line-height: fs(16);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+    }
+}
+
+.mn,
+.ft,
+.bt {
+    &-h1 {
+        @extend .font-bold;
+        font-size: fs(18);
+        line-height: fs(36);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(24);
+            line-height: fs(26);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(22);
+            line-height: fs(24);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(32);
+            line-height: fs(34);
+        }
+    }
+
+    &-h2 {
+        @extend .font-bold;
+        font-size: fs(14);
+        line-height: fs(16);
+
+        @media screen and (min-width: $xl) {
+            font-size: fs(14);
+            line-height: fs(16);
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+
+    }
+
+    &-h3 {
+        @extend .font-bold;
+        font-size: fs(14);
+        line-height: fs(16);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(16);
+            line-height: fs(18);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(16);
+            line-height: fs(18);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(20);
+            line-height: fs(22);
+        }
+    }
+
+    &-h4 {
+        @extend .font-regular;
+        font-size: fs(14);
+        line-height: fs(16);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(14);
+            line-height: fs(16);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(14);
+            line-height: fs(16);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(18);
+            line-height: fs(20);
+        }
+    }
+
+    &-b1 {
+        @extend .font-light;
+        font-size: fs(14);
+        line-height: fs(24);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(18);
+            line-height: fs(32);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(18);
+            line-height: fs(28);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(24);
+            line-height: fs(34);
+        }
+    }
+
+    &-b2 {
+        @extend .font-light;
+        font-size: fs(14);
+        line-height: fs(24);
+
+        @media screen and (min-width: $md) {
+            font-size: fs(14);
+            line-height: fs(24);
+        }
+        @media screen and (min-width: $xl) {
+            font-size: fs(14);
+            line-height: fs(24);
+        }
+        @media screen and (min-width: $xxl) {
+            font-size: fs(16);
+            line-height: fs(30);
+        }
+    }
+}
+
+.text-white {
+    color: var(--color-back);
+}
+
+.text-blue {
+    color: var(--gz-blue);
+}
+
+.text-gray3 {
+    color: var(--gray3);
+}
+
+.icon-font-size {
+    font-family: 'icons';
+    font-size: 24px;
+    line-height: 1;
+    @media screen and (min-width: $xl) {
+        font-size: 32px;
+    }
+}
+
+// FAILBACK
+
+.p-date {
+    font-family: 'Circe Light';
+    font-size: fs(12);
+    line-height: 1;
+
+    @media screen and (min-width: $xl) {
+        font-size: fs(14);
+    }
+
+    @media screen and (min-width: $xxl) {
+        font-size: fs(16);
+    }
+}
+
+.p-title {
+    font-size: fs(16);
+    line-height: 1.12;
+    font-family: 'Circe Bold';
+    font-weight: normal;
+
+    @media screen and (min-width: $md) {
+        font-size: fs(21);
+    }
+
+    @media screen and (min-width: $xl) {
+        font-size: fs(24);
+    }
+
+    @media screen and (min-width: $xxl) {
+        font-size: fs(32);
+    }
+}
+
+.p-head {
+    font-size: fs(18);
+    line-height: 1.11;
+    font-family: 'Circe Bold';
+    font-weight: normal;
+
+    @media screen and (min-width: $md) {
+        font-size: fs(21);
+    }
+
+    @media screen and (min-width: $xl) {
+        font-size: fs(22);
+    }
+
+    @media screen and (min-width: $xxl) {
+        font-size: fs(32);
+    }
+}
+

@@ -1,0 +1,155 @@
+<%= semantic_form_for [:admin, resource], builder: ActiveAdmin::FormBuilder do |f| %>
+    <%= f.semantic_errors %>
+    <% resource.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+
+    <%= f.inputs do %>
+      <div class="tabs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="tabs-1"><a href="#tabs-1">Main info</a></li>
+          <li class="tabs-2"><a href="#tabs-2">SEO fields</a></li>
+        </ul>
+        <div class="tabs_content">
+          <div id="tabs-1" class="tabs-1">
+            <%= f.inputs class: "inputs" do %>
+              <%= f.input :name %>
+              <%= f.input :slug %>
+              <%= f.input :logo, as: :hidden, input_html: { value: f.object.logo.signed_id } if f.object.logo.attached? %>
+              <%= f.input :logo, input_html: { class: "changer_image", direct_upload: true, accept: "image/*" }, as: :file, hint: image_tag(f.object.logo.attached? ? f.object.logo : "", class: "changer_image_result", id: "image_#{f.object.id if f.object.logo.attached?}") %>
+              <%= f.input :header %>
+              <%= f.input :logo_url %>
+              <%= f.input :ga, hint: "additional google tag to post, insert only code like GTM-T5FQ6Q7" %>
+
+              <%= f.input :active %>
+              
+            <% end %>
+            <%= render partial: "page_blocks", locals: { f: f } %>
+            
+          </div>
+          <div id="tabs-2">
+            <%= f.inputs class: "inputs" do %>
+              <% f.input :seo_title %>
+              <% f.input :seo_description %>
+              <% f.input :seo_image, as: :hidden, input_html: { value: f.object.seo_image.signed_id } if f.object.seo_image.attached? %>
+              <% f.input :seo_image, input_html: { class: "changer_image", direct_upload: true, accept: "image/*" }, as: :file, hint: image_tag(f.object.seo_image.attached? ? f.object.seo_image : "", class: "changer_image_result", id: "image_#{f.object.id if f.object.seo_image.attached?}") %>
+              
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+        <div class="action_section">
+          <%= f.actions %>
+        </div>
+
+      <% end %>
+      
+      <script>
+        $(document).ready(function () {
+            // $('#car_in_stock_car_id').on('change', select_block_type);
+            $('.has_many_container').on('change', '.block_type', function () {
+                select_block_type($(this));
+            })
+            $('.has_many_container').on('change', '.module_type', function () {
+                select_block_type_module($(this));
+            })
+        
+        
+            function select_block_type_module(elem) {
+                if (elem.closest('.has_many_fields').find('.block_type').val() == 'block2') {
+                    //console.log(1);
+                    var block_type = $(elem).val();
+                    $(elem).closest('li').parent().find('.add_image,.name_uk,.name_en,.module,.text_editor_uk,.text_editor_en, .add_data').closest('li').hide();
+                    $(elem).closest('li').parent().find('.galleries').parent().hide();
+                    switch (block_type) {
+                        case 'team':
+                            //$(elem).closest('li').parent().find('.name_uk,.name_en,.add_image,.module').closest('li').hide();
+                            break;
+                        case 'opportunities':
+                            //$(elem).closest('li').parent().find('.name_uk,.name_en,.module').closest('li').show();
+                            break;
+                        case 'gallery':
+                            //$(elem).closest('li').parent().find('.module').closest('li').hide();
+                            // $(elem).closest('li').parent().find('.galleries').parent().show();
+                            break;
+                        case 'vacancy':
+                            //$(elem).closest('li').parent().find('.module').closest('li').hide();
+                            break;
+                        default:
+                            $(elem).closest('li').parent().find('.add_image').closest('li').hide();
+        
+                    }
+                }
+            }
+            function select_block_type(elem) {
+                var block_type = $(elem).val();
+                $(elem).closest('li').parent().find('.name_en,.name_uk,.add_image,.module,.module_type,.text_editor_uk,.text_editor_en, .add_data,.contacts_rigth_holder').closest('li').hide();
+                $(elem).closest('li').parent().find('.galleries').parent().hide();
+                switch (block_type) {
+                    case 'block1':
+                    case 'block16':
+                        $(elem).closest('li').parent().find('.text_editor_uk,.text_editor_en').closest('li').show();
+                        break;
+                    case 'block2':
+                        $(elem).closest('li').parent().find('.module_type').closest('li').show();
+                        break;
+                    case 'accordeon':
+                    case 'accordeon_color':
+                    case 'tab':
+                        $(elem).closest('li').parent().find('.name_uk,.name_en,.text_editor_uk,.text_editor_en').closest('li').show();
+                        setTimeout(function () {
+                            //  console.log($(elem).closest('li').parent().find('.text_ua,.text_ru').parent().find('iframe').contents().find('.cke_editable'), $(elem).closest('li').parent().find('.text_ua,.text_ru').parent().find('iframe').contents(),$(elem).closest('li').parent().find('.text_ua,.text_ru').parent().find('iframe'));
+                            //  $(elem).closest('li').parent().find('.text_ua,.text_ru').parent().find('iframe').contents().find('.cke_editable').addClass('section-black');
+                        }, 3000);
+                        break;
+                    case 'with_contacts':
+                        $(elem).closest('li').parent().find('.name_uk,.name_en,.contacts_rigth_holder').closest('li').show();
+                        break;
+                    case 'block3':
+                        $(elem).closest('li').parent().find('.name_uk,.name_en,.text_editor_uk,.text_editor_en').closest('li').show();
+                    break;
+                    case 'with_image':
+                    $(elem).closest('li').parent().find('.name_uk,.name_en,.add_image').closest('li').show();
+                break;
+                    case 'block4':
+                    case 'block5':
+                    case 'block6':
+                    case 'block7':
+        
+                    case 'block9':
+                    case 'block10':
+                    case 'block11':
+                    case 'block12':
+                    case 'block13':
+                        $(elem).closest('li').parent().find('.name_uk,.name_en,.add_image,.text_editor_uk,.text_editor_en').closest('li').show();
+                        break;
+                    case 'block14':
+                    case 'block15':
+                        $(elem).closest('li').parent().find('.name_uk,.name_en,.add_image,.text_editor_uk,.text_editor_en,.add_data').closest('li').show();
+                        break;
+                    default:
+                        $(elem).closest('li').parent().find('.text_editor_uk,.text_editor_en').closest('li').show();
+                }
+            }
+            // select_block_type();
+            $('.has_many_add').on('click', function () {
+        
+                setTimeout(function () {
+                    id_counter_right = $('.right_post_blocks fieldset').length - 1;
+                    id_counter_center = $('.center_post_blocks fieldset').length - 1;
+                    select_block_type($('#opportunity_right_post_blocks_attributes_' + id_counter_right + '_block_type'));
+                    select_block_type($('#opportunity_center_post_blocks_attributes_' + id_counter_center + '_block_type'));
+                }, 200);
+        
+            });
+            $('.block_type').each(function () {
+                select_block_type($(this));
+            })
+            $('.module_type').each(function () {
+                select_block_type_module($(this));
+            })
+        
+        })
+      </script>

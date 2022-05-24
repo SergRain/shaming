@@ -1,0 +1,127 @@
+@import '../vars';
+@import '../global';
+@import '../typography';
+
+.division-short-desc {
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        @extend .abs-fill;
+        z-index: 1;
+    }
+
+    &::before {
+        background-color: #F3FAFB;
+    }
+    &::after {
+        background: linear-gradient(35.1deg, rgba(0, 160, 223, 0.6) 0%, rgba(0, 160, 223, 0.21) 46.88%, rgba(0, 160, 223, 0) 100%);
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.flex-division {
+    flex-flow: row wrap;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+
+    @media screen and (min-width: $md) {
+        padding-top: 5.5rem;
+    }
+
+    @media screen and (min-width: $xl) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        flex-wrap: nowrap;
+    }
+
+    @media screen and (min-width: $xxl) {
+        padding-bottom: 6rem;
+    }
+}
+
+.dsd {
+
+    &-pic,
+    &-text {
+        width: 100%;
+        @media screen and (min-width: $xl) {
+            width: 50%;
+        }
+    }
+
+    &-pic {
+        text-align: center;
+
+        @media screen and (min-width: $xl) {
+            order: 2;
+        }
+
+        &__image {
+            margin-left: auto;
+            margin-right: auto;
+
+            @media screen and (min-width: $md) {
+                width: 80%;
+            }
+            @media screen and (min-width: $xl) {
+                width: 100%;
+            }
+        }
+    }
+
+    &-text {
+        padding-top: 4rem;
+        font-size: fs(24);
+        line-height: 1.2;
+
+        @media screen and (min-width: $md) {
+            padding-top: 6rem;
+            font-size: fs(40);
+        }
+
+        @media screen and (min-width: $xl) {
+            order: 1;
+            padding-right: 3rem;
+            padding-top: 0;
+        }
+
+        @media screen and (min-width: $xxl) {
+            font-size: fs(42);
+            padding-right: 10%;
+        }
+    }
+}
+
+.dvsn {
+
+    &-goal {
+        flex-flow: row wrap;
+
+        &__title,
+        &__text {
+            width: 100%;
+        }
+
+        &__title {
+            @media screen and (min-width: $md) {
+                width: 33.3%;
+                padding-right: 3rem;
+            }
+        }
+
+        &__text {
+            padding-top: 1rem;
+
+            @media screen and (min-width: $md) {
+                width: 66.7%;
+                padding-top: 0;
+            }
+        }
+    }
+}

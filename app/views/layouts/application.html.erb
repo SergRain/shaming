@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @seo_title %></title>
+  <meta name="description" content="<%= @seo_description %>">
+  <meta name="keywords" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Companies that support war">
+  <meta property="og:title" content="<%= @seo_title %>">
+  <meta property="og:description" content="<%= @seo_description %>">
+  <meta property="og:image" content="<%= @seo_image %>">
+  <meta property="og:url" content="https://dont-fund-russian.army/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <%= yield :header_style %>
+  
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <%= render "shared/pixel" if Rails.env == "production" %>
+  <%= render "shared/google_head" if Rails.env == "production" %>
+  <%= yield :header_add_ga %>
+</head>
+<body>
+    <%= render "shared/google_body" if Rails.env == "production" %>
+    <%= yield :body_add_ga %>
+    <%= render "shared/header" %>
+    <%= yield %>
+    <%= render request.path == "/" ? "shared/footer" : "shared/footer_company" %>
+    <%= javascript_include_tag "/js/swiper-bundle.min.js" %>
+    <%= javascript_include_tag "/js/index.js" %>
+</body>
+
+</html>

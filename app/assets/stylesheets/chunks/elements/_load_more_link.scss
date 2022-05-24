@@ -1,0 +1,40 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.load-more {
+    &-section {
+        text-align: center;
+        padding-top: 1rem;
+
+        @media screen and (min-width: $md) {
+            padding-top: 1.5rem;
+        }
+
+        @media screen and (min-width: $xxl) {
+            padding-top: 2rem;
+        }
+    }
+
+    &-link {
+        display: inline-block;
+        white-space: nowrap;
+        color: var(--gz-black);
+
+        &:hover {
+            color: #565A60;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    &-link::after {
+        @extend .font-icon;
+        content: '\f0009';
+        display: inline;
+        margin-left: 0.5em;
+        font-size: 1em;
+    }
+}

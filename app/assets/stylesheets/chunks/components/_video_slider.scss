@@ -1,0 +1,166 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.video-slider {
+    width: 100%;
+    width: calc(100% + var(--cpx) + var(--cpx));
+    margin-left: calc(var(--cpx) * -1);
+}
+
+.video {
+    &-preview-box {
+        position: relative;
+    }
+
+    &-poster {
+        z-index: 1;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+    }
+
+    &-play {
+        &-listener {
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        &-btn {
+            display: block;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: rgba(255, 255, 255, 0.5);
+            color: var(--color-back);
+
+            svg {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-40%, -50%);
+            }
+
+            @media screen and (min-width: $xl) {
+                width: 120px;
+                height: 120px;
+
+                svg {
+                    width: 41px;
+                    height: 47px;
+                }
+            }
+
+            @media screen and (min-width: $xxl) {
+                width: 170px;
+                height: 170px;
+
+                svg {
+                    width: 58px;
+                    height: 66px;
+                }
+            }
+        }
+
+        &-title {
+            padding: var(--cpx);
+            z-index: 4;
+            width: 100%;
+
+            @media screen and (min-width: $md) {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                color: var(--color-back);
+
+                h3 {
+                    border-bottom: 1px solid #D4ECF6;
+                    padding-bottom: 1rem;
+
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $xl) {
+    .video-swiper-container {
+        .base-swiper-ctrls {
+            display: none;
+        }
+
+    }
+
+    .video-slider + .spacer {
+        display: none;
+    }
+
+}
+
+.video-xl-next {
+    display: none;
+
+    @media screen and (min-width: $xl) {
+        display: block;
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 5;
+   }
+
+    &-box {
+        background: rgba(0, 0, 0, 0.7);
+        mix-blend-mode: multiply;
+        color: var(--color-back);
+        transform: translate(100%, 0);
+        transition: transform 0.25s;
+    }
+
+    &:hover &-box {
+        transform: translate(0, 0);
+    }
+
+    &-btn {
+        white-space: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+
+        position: absolute;
+        left: 15%;
+        bottom: 2.5rem;
+        cursor: pointer;
+
+        .circle-icon {
+            margin-left: 1rem;
+        }
+
+        &:hover .circle-icon::before {
+            width: 26px;
+        }
+    }
+}
+
+.video-play-player {
+    z-index: -1;
+    background: black;
+
+    iframe {
+        @extend .abs-fill;
+    }
+}
+// pic-width-layer

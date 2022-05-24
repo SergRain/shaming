@@ -1,0 +1,35 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.grad-btn {
+    background: rgb(0,160,223);
+    background: linear-gradient(90deg, rgba(0,160,223,1) 0%, rgba(172,218,241,1) 100%);
+    padding: 4px;
+
+    &-body {
+        display: block;
+        background-color: var(--color-back);
+        padding: 1rem 0.75rem;
+        @extend .nws-h3;
+
+        @media screen and (min-width: $xl) {
+            padding: 1.5rem 1.25rem;
+        }
+
+        @media screen and (min-width: $xxl) {
+            padding: 1.5rem 2.25rem;
+        }
+    }
+}
+
+.grad-box {
+    background: rgb(0,160,223);
+    background: linear-gradient(90deg, rgba(0,160,223,1) 0%, rgba(172,218,241,1) 100%);
+    padding: 4px;
+
+    &-body {
+        background-color: inherit;
+    }
+}
+

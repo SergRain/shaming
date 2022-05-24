@@ -1,0 +1,2 @@
+class PostSubRightBlock < PostSubBlock
+end

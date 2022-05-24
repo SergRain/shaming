@@ -1,0 +1,141 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.manager-v2 {
+    &-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: min-content 1fr;
+
+        width: 100%;
+        height: 100%;
+
+        cursor: default;
+        overflow: hidden;
+    }
+
+    &-spacer,
+    &-info {
+        position: relative;
+        z-index: 2;
+    }
+
+    &-spacer {
+        background: transparent;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-top: 98%;
+        }
+    }
+
+    &-info {
+        // background-color: var(--color-back);
+        padding: 0.75rem 0.5rem 1.5rem;
+        width: 101%;
+
+        position: relative;
+        z-index: 2;
+
+        &::before {
+            content: '';
+            @extend .abs-fill;
+            z-index: 1;
+            background-color: var(--color-back);
+            transform: translate(0, 0);
+            transition: transform 0.25s;
+        }
+
+        @media screen and (min-width: $xxl) {
+            padding: 1rem;
+        }
+    }
+
+    &-pic {
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 40%;
+
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            background: linear-gradient(35.1deg, rgba(0, 160, 223, 0.95) 0%, rgba(0, 160, 223, 0.03) 41.31%, rgba(0, 160, 223, 0) 100%);
+            transition: opacity 0.25s;
+            opacity: 0;
+        }
+    }
+
+    &-profession {
+        color: var(--gray3);
+    }
+
+    &-name {
+        margin-top: 0.5rem;
+        color: var(--gz-black);
+    }
+
+    &-profession,
+    &-name {
+        transition: color 0.25s;
+    }
+
+    &-data {
+        position: relative;
+        z-index: 2;
+        transform: translate(0, 0);
+        transition: transform 0.25s;
+    }
+
+    &-link  {
+        padding-top: 1rem;
+        transform: translate(0, 0);
+        opacity: 0;
+        transition: transform 0.25s opacity 0.25s;
+
+        position: absolute;
+        left: 0.5rem;
+        bottom: 0;
+
+        @media screen and (min-width: $xxl) {
+            left: 1rem;
+        }
+    }
+}
+
+.manager-v2-card:hover {
+    .manager-v2 {
+        &-info::before {
+            transform: translate(0, 100%);
+        }
+
+        &-profession,
+        &-name {
+            color: var(--color-back);
+        }
+
+        &-pic {
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.manager-v2-card[data-desc-present='true']:hover .manager-v2-data {
+    transform: translate(0, -32px);
+    @media screen and (min-width: $xxl) {
+        transform: translate(0, -48px);
+    }
+}
+
+.manager-v2-card[data-desc-present='true']:hover .manager-v2-link {
+    transform: translate(0, -20px);
+    opacity: 1;
+}

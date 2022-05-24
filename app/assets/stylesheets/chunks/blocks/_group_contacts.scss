@@ -1,0 +1,219 @@
+@import '../vars';
+@import '../typography';
+
+.contact-primary {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    row-gap: 2rem;
+
+    @media screen and (min-width: $md) {
+        row-gap: 2.5rem;
+        width: 65%;
+    }
+
+    @media screen and (min-width: $xl) {
+        width: 100%;
+        grid-template-columns: repeat(2, 50%);
+
+        li {
+            padding-right: 30%;
+        }
+    }
+}
+
+.contact-data {
+    padding-top: 0.5rem;
+    @media screen and (min-width: $md) {
+        padding-top: 1rem;
+    }
+    @media screen and (min-width: $xxl) {
+        padding-top: 1.5rem;
+    }
+}
+
+.contact-secondary {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    row-gap: 2rem;
+
+    @media screen and (min-width: $md) {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 1fr;
+
+        li {
+            padding-right: 15%;
+        }
+
+        &-head {
+            min-height: 3.23em;
+        }
+    }
+
+    @media screen and (min-width: $xl) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+.contact-simple-list {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    row-gap: 2rem;
+
+    @media screen and (min-width: $md) {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 1fr;
+
+        &-item {
+            padding-right: 15%;
+        }
+    }
+
+    @media screen and (min-width: $xl) {
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 3rem;
+    }
+
+    @media screen and (min-width: $xxl) {
+        row-gap: 3.5rem;
+
+        &-item {
+            padding-right: 20%;
+        }
+    }
+}
+
+/* slider */
+/*
+.region-slider {
+    .swiper-slide {
+        width: auto;
+        height: auto;
+    }
+}
+
+
+.region-box {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @media screen and (min-width: 1280px) {
+        .category-slider-btn {
+            display: block;
+        }
+    }
+}
+
+.region-btn {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-100%, -100%);
+        opacity: 0;
+    }
+
+    &__value {
+        white-space: nowrap;
+        display: block;
+        font-family: 'Circe Light';
+        font-weight: normal;
+        color: var(--gray3);
+        border: 1px solid var(--gray3);
+
+        height: 32px;
+        line-height: 32px;
+        border-radius: 16px;
+        padding: 0 16px;
+        font-size: 14px;
+
+        @media screen and (min-width: $xl) {
+            height: 40px;
+            line-height: 40px;
+            border-radius: 20px;
+            padding: 0 24px;
+        }
+
+        @media screen and (min-width: $xxl) {
+            height: 48px;
+            line-height: 48px;
+            border-radius: 24px;
+            padding: 0 32px;
+            font-size: 20px;
+        }
+
+
+    }
+
+    input:checked + &__value {
+        border: 1px solid var(--gz-black);
+        color: var(--gz-black);
+        text-shadow: 1px 0px 0px rgba(0, 0, 0, 1);
+    }
+
+    input:disabled + &__value {
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+*/
+.region-section {
+    padding: 2rem 0;
+
+    @media screen and (min-width: $xl) {
+        padding: 4rem 0 0;
+    }
+}
+
+.region-addr-slider {
+    .swiper-slide {
+        border-bottom: 1px solid var(--color-accent_border);
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
+    .base-swiper-ctrls {
+        padding-top: 1.5rem;
+    }
+
+    @media screen and (min-width: $md) {
+        .swiper-slide {
+            padding-top: 0;
+            padding-bottom: 0;
+            border-bottom: 0 none;
+            padding-right: 15%;
+        }
+
+        .base-swiper-ctrls {
+            display: none;
+        }
+
+        .swiper-wrapper {
+            display: grid;
+            grid-auto-rows: auto;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 2rem;
+        }
+    }
+
+    @media screen and (min-width: $xl) {
+        .swiper-wrapper {
+            grid-template-columns: repeat(4, 1fr);
+            row-gap: 3rem;
+        }
+    }
+}
+
+.region-filter-container {
+    padding-bottom: 0;
+    position: relative;
+    z-index: 10;
+}

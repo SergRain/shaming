@@ -1,0 +1,128 @@
+<% if block.block_type == "image" %>
+  <%= image_tag block.image, width: 200 if block.image.attached? %>
+<% elsif block.block_type == "image_with_caption" %>
+  <%= image_tag block.image, width: 200 if block.image.attached? %>
+  <p><%= block.text_uk %></p>
+  <% elsif block.block_type == "text_image_left" %>
+  <%= image_tag block.image, width: 200 if block.image.attached? %>
+  
+  <p class="page_block_text"><%= raw block.text %></p>
+<% elsif block.block_type == "text_image_right" %>
+<p class="page_block_text"><%= raw block.text %></p>
+  <%= image_tag block.image, width: 200 if block.image.attached? %>
+  
+<% elsif block.block_type == "year" %>
+  <p><%= block.text_uk %></p>
+<% elsif block.block_type == "history_header" %>
+  <p><%= block.text_uk %></p>
+  <p><%= block.add_data_uk %></p>
+<% elsif block.block_type == "header" %>
+  <p><%= block.text_uk %></p>
+<% elsif block.block_type == "infobuble" %>
+  <p><%= block.text_uk %></p>
+  <p><%= block.add_data_uk %></p>
+<% elsif block.block_type == "text_with_header" %>
+  <p><%= block.text_uk %></p>
+  <p><%= block.add_data_uk %></p>
+<% elsif block.block_type == "text" %>
+  <p class="page_block_text"><%= raw block.text %></p>
+  <% elsif block.block_type == "simple_text" %>
+  <p class="page_block_text"><%= raw block.text %></p>
+<% elsif block.block_type == "link" %>
+  <a href="<%= block.t("add_data", @lang) %>" target='_blank'><%= raw block.text_uk %></a>
+<% elsif block.block_type == "image_with_text" %>
+  <div class="txt-b3 text-data">
+    <figure>
+      <%= image_tag block.image if block.image.attached? %>
+      <figcaption><%= block.text_uk %></figcaption>
+    </figure>
+  </div>
+<% elsif block.block_type == "numbers" %>
+  <li>
+    <strong><%= block.text_uk %></strong>
+    <span><%= block.add_data_uk %></span>
+  </li>
+<% elsif block.block_type == "file" %>
+  <div class="summary-head-links">
+    <div class="summary-head-col">
+      <ul class="doc-ul">
+        <li><a href="<%= url_for(block.image) if block.image.attached? %>" download="<%= block.text_uk %>" class="document-preview">
+            <div class="document-preview-title nws-h4"><%= block.text_uk %></div>
+            <div class="document-preview-desc txt-b4"><%= "#{block.image.filename.extension if block.image.attached?} / #{number_to_human_size(block.image.byte_size) if block.image.attached?}" %></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% elsif block.block_type == "report_file" %>
+  <div class="summary-head-links">
+    <div class="summary-head-col">
+      <ul class="doc-ul">
+        <li><a href="<%= url_for(block.image) if block.image.attached? %>" target='_blank' class="document-preview">
+            <div class="document-preview-title nws-h4">До звіту</div>
+            <div class="document-preview-desc txt-b4">Посилання</div>
+            <div class="document-preview-icon"><span class="external"></span></div>
+          </a>
+        </li>
+        <li><a href="<%= url_for(block.image) if block.image.attached? %>" download="<%= block.text_uk %>" class="document-preview">
+            <div class="document-preview-title nws-h4">Завантажити</div>
+            <div class="document-preview-desc txt-b4"><%= "#{block.image.filename.extension if block.image.attached?} / #{number_to_human_size(block.image.byte_size) if block.image.attached?}" %></div>
+            <div class="document-preview-icon"><span class="download"></span></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% elsif block.block_type == "person" %>
+  <div class="manager-v2-card" data-desc-present="false">
+    <div class="manager-v2-pic abs-fill">
+      <%= image_tag block.image, class: "abs-cover-image" if block.image.attached? %>
+    </div>
+    <div class="manager-v2-spacer"></div>
+    <div class="manager-v2-info">
+      <div class="manager-v2-data">
+        <div class="manager-v2-profession txt-b4"><%= block.add_data_uk %></div>
+        <div class="manager-v2-name nws-h2"><%= block.text_uk %></div>
+      </div>
+    </div>
+  </div>
+<% elsif block.block_type == "card" %>
+  <span  class="our-value-card grid">
+    <div class="relative our-value-card-pic">
+      <div class="abs-fill pic-width-layer pic-width-layer_v2">
+        <%= image_tag block.image if block.image.attached? %>
+      </div>
+    </div>
+    <div class="relative our-value-card-data text-white">
+      <div class="our-value-card-desc">
+        <h3 class="prm-h3"><%= raw block.text_uk %></h3>
+        <div class="nws-h4 our-value-card-text">
+          <p><%= raw block.add_data_uk %></p>
+        </div>
+      </div>
+    </div>
+  </span>
+<% elsif block.block_type == "news" %>
+  <p><%= block.module_type.constantize.find(block.module_id).name_uk %></p>
+<% elsif block.block_type == "outer_block" %>
+  <li class="grid-the-facts-item">
+    <div class="fact-preview">
+      <div class="fact-picture grid">
+        <div class="fact-pic relative">
+          <%= image_tag block.image if block.image.attached? %>
+        </div>
+        <div class="fact-title relative nws-h2"><%= block.text_uk %></div>
+      </div>
+      <div class="fact-desc">
+        <div class="fact-desc-lead txt-b3"><%= block.add_data_uk %></div>
+        <div class="fact-desc-link"><a href='<% block.add_data %>' target="_blank">Посилання</a></div>
+      </div>
+    </div>
+  </li>
+<% elsif block.block_type == "video" %>
+  <%= image_tag block.image, width: 200 if block.image.attached? %>
+  <p><%= block.text_uk %></p>
+  <p>Відео: (<%= block.add_data_uk %>) <a href='https://www.youtube.com/watch?v=<%= block.text_uk %>' target='_blank'>Подивитись</a></p>
+<% elsif block.block_type == "managment" %>
+  <p>Розділ керівництва: (<%= block.module_type.constantize.find(block.module_id).name_uk %>) <a href='/admin/person_categories/<%= block.module_id %>/edit' target='_blank'>Подивитись</a></p>
+<% end %>

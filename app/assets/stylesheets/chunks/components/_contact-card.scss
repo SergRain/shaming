@@ -1,0 +1,19 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.contact-card {
+    &__body {
+        margin-top: 0.5rem;
+
+        @media screen and (min-width: $md) {
+            margin-top: 1rem;
+        }
+        a {
+            color: var(--gz-blue);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

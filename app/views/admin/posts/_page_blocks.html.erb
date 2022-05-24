@@ -1,0 +1,85 @@
+
+<% block_types = [["Text with list (right)", "text_with_list_right"], ["Text with list (bottom)", "text_with_list_bottom"], ["Text with images", "text_image"], ["News", "news"], ["Other companies", "other_companies"], ["Text", "text"], ["Ask company address", "ask_company_address"], ["Ask company twitter", "ask_company_twitter"], ["Template", "template"]]
+   left_blocks = [["Text", "text"], ["Image", "image"]]
+   right_blocks = [["Text", "text"], ["Image", "image"], ["simple text", "simple_text"], ["text image right", "text_image_right"], ["text image left", "text_image_left"], ["Tweet", "tweet"]]
+   add_block_types = [["How war funded", "how_funded"], ["What do to help", "what_do_to_help"]]
+   # block_types = get_block_types_helper
+   #  block_types.push(["Блок з персонами категорії", "managment"]) if f.object.class.to_s == "PersonCategory"
+   #  block_types.push(["Блок з документами", "documents"]) if f.object.class.to_s == "DocumentCategory"
+   #  block_types = [["Файл звіту ліворуч, картинка з текстом праворуч", "report_file"], ["Блок звернення", "report_person"], ["Блок з текстом праворуч", "right_text"]] if f.object.class.to_s == "YearReport"
+   #  left_blocks = get_left_blocks_helper
+   #  left_blocks = get_add_left_blocks_helper if f.object.class.to_s == "YearReport"
+   #  right_blocks = get_right_blocks_helper
+   #  right_blocks = get_add_right_blocks_helper if f.object.class.to_s == "YearReport" %>
+<%= f.inputs do %>
+  <% f.has_many :post_blocks, allow_destroy: true, new_record: true, sortable: :position do |cf| %>
+    <div class='post_block_custom_form'>
+      <% cf.input :block_type, as: :select, collection: block_types, include_blank: false, input_html: { class: "post_block_type_input" } %>
+      <% cf.input :module_type, as: :select, collection: add_block_types, include_blank: false, input_html: { class: "post_add_block_type_input" } %>
+      <% cf.input :name, input_html: { class: "block_name_input" } %>
+
+      <div class="add_fields popup_fields popup" style="display:none">
+                <% cf.input :text, label: "Text", input_html: { class: "text_textarea" } %>
+              </div>
+              <li><label for="" class="label">Text</label>
+                <div class="text_editor text_textarea"><a href="#">Edit text</a></div>
+              </li>
+      <% #cf.input :add_data, as: :boolean, input_html: { class: "on_blue_bg" } %>
+      <% cf.input :image, input_html: { class: "block_image_input changer_image", accept: "image/*" }, as: :file, hint: image_tag(cf.object.image.attached? ? (cf.object.image) : "", class: "changer_image_result", id: "image_#{cf.object.id if cf.object.image.attached?}") %>
+    </div>
+    <div class='post_table'>
+      <div class='post_table_left_column'>
+        <% cf.has_many :post_sub_left_blocks, allow_destroy: true, new_record: true, sortable: :position do |cff| %>
+          <div class='content_post_sub_block'>
+            <div class='hint'>
+              <% if cff.object.id %>
+                <%= render partial: "/admin/posts/block_content", locals: { block: cff.object } %>
+                <div class='do_edit ui-icon-pencil'></div>
+              <% end %>
+            </div>
+            <div class='custom_form <% if cff.object.id %>hidden_block<% end %>'>
+              <% cff.input :block_type, label: "Тип блоку", as: :select, collection: left_blocks, include_blank: false, input_html: { class: "block_type_input" } %>
+              <div class="add_fields popup_fields popup" style="display:none">
+                <% cff.input :text, label: "Text", input_html: { class: "text_textarea" } %>
+              </div>
+              <li><label for="" class="label">Text</label>
+                <div class="text_editor text_textarea"><a href="#">Edit text</a></div>
+              </li>
+              
+              <% cff.input :text, as: :string, label: "Текст", input_html: { class: "text_input" } %>
+              <% cff.input :add_data, as: :string, label: "Значення", input_html: { class: "add_text_input" } %>
+              <% cff.input :image, as: :file, input_html: { class: "image_input changer_image" }, hint: image_tag(cff.object.image.attached? ? (cff.object.image) : "", class: "changer_image_result", id: "image_#{cff.object.id if cff.object.image.attached?}") %>
+             </div>
+        <% end %>
+      </div>
+      <div class='post_table_center_column'>
+        <% cf.has_many :post_sub_right_blocks, allow_destroy: true, new_record: true, sortable: :position do |cff| %>
+          <div class='content_post_sub_block'>
+            <div class='hint'>
+              <% if cff.object.id %>
+                <%= render partial: "/admin/posts/block_content", locals: { block: cff.object } %>
+                <div class='do_edit ui-icon-pencil'></div>
+              <% end %>
+            </div>
+            <div class='custom_form <% if cff.object.id %>hidden_block<% end %>'>
+              <% cff.input :block_type, label: "Тип блоку", as: :select, collection: right_blocks, include_blank: false, input_html: { class: "block_type_input" } %>
+              <div class="add_fields popup_fields popup" style="display:none">
+                <% cff.input :text, label: "Текст (укр)", input_html: { class: "text_textarea" } %>
+              </div>
+              
+              <li><label for="" class="label">Text</label>
+                <div class="text_editor text_textarea"><a href="#">Edit text</a></div>
+              </li>
+            
+              <% cff.input :text, as: :string, label: "Текст", input_html: { class: "text_input" } %>
+             
+            
+              <% cff.input :add_data, as: :string, label: "Посилання", input_html: { class: "add_data_input" } %>
+              <% cff.input :image, label: "Картинка", as: :file, input_html: { class: "image_input changer_image" }, hint: image_tag(cff.object.image.attached? ? (cff.object.image) : "", class: "changer_image_result", id: "image_#{cff.object.id if cff.object.image.attached?}") %>
+               </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

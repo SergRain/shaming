@@ -1,0 +1,28 @@
+@import '../vars';
+@import '../typography';
+
+@media screen and (min-width: $md) {
+    .management-swiper-container {
+        overflow: visible;
+    }
+
+    .management-swiper-ctrls {
+        display: none;
+    }
+
+    .management-swiper-container .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        column-gap: 1rem;
+        row-gap: 2rem;
+    }
+}
+
+@media screen and (min-width: $xl) {
+    .management-swiper-container .swiper-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2.5rem;
+        row-gap: 3rem;
+    }
+}

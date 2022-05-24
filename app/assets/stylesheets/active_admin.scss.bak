@@ -1,0 +1,349 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+.ui-sortable-handle {
+    cursor: all-scroll;
+}
+
+.has_many_fields ol {
+    padding: 10px 0;
+}
+
+form .has_many_container .handle {
+    top: 5px;
+    right: 10px;
+}
+
+.container {
+    .panel-body {
+        height: 300px;
+        padding: 0px;
+        &.panel-regular-table {
+            overflow-y: auto;
+        }
+        table.flex-table {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            thead,
+            tbody {
+                display: block;
+            }
+            thead {
+                margin-right: 0px; //margin to align correctly to scrollbar in table body
+            }
+            tbody {
+                flex: 1; //variable height
+                overflow-y: scroll;
+            }
+            tr {
+                width: 100%;
+                display: flex;
+                td,
+                th {
+                    display: block;
+                    flex: 1;
+                }
+            }
+        }
+        table.flex-widths {
+            &.flex-table-aligned {
+                thead>tr {
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                }
+            }
+            tr {
+                td,
+                th {
+                    &:nth-child(2) {
+                        flex: 3;
+                    }
+                    &:nth-child(4) {
+                        flex: 2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.post_table {
+    display: flex;
+    .post_table_left_column {
+        border: 1px solid red;
+        width: 40%;
+    }
+    .post_table_center_column {
+        border: 1px solid red;
+        width: 60%;
+    }
+    .hidden_block {
+        display: none;
+    }
+    fieldset {
+        padding: 20px;
+        margin: 15px 0;
+        min-height: 100px;
+    }
+    .has_many_delete {
+        label {
+            display: none;
+        }
+        position: absolute;
+        right: 25px;
+        font-size: 0;
+        top: 65px;
+        padding: 0;
+        height: 20px;
+        border: 1px solid red;
+        width: 20px;
+        background: url(asset-path('admin/delete.png')) no-repeat center center;
+        background-size: contain;
+        cursor: pointer;
+    }
+    .do_edit {
+        position: absolute;
+        right: 20px;
+        border: 1px solid red;
+        top: 20px;
+        height: 30px;
+        width: 30px;
+        background: url(asset-path('admin/edit.png')) no-repeat center center;
+        background-size: contain;
+        cursor: pointer;
+    }
+}
+
+.has_many_fields .handle {
+    // border: 1px solid crimson;
+    transform: rotate(-90deg) translate(50%, -25%);
+    transform-origin: right center;
+    font-size: 1.1em;
+    padding: 0 9px 0 0 !important;
+    right: -4px !important;
+    border-radius: 3px;
+    background: white;
+    border: 1px solid gray;
+    &::after {
+        content: '⇄';
+        margin-left: 10px;
+    }
+}
+
+.popup_holder {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    top: 0;
+    height: 100%;
+    left: 0;
+    z-index: 103;
+    padding-left: 0%;
+    overflow: auto;
+}
+
+.popup_holder .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+}
+
+.popup_holder .add_fields {
+    position: absolute;
+    width: 80%;
+    margin: 5% 10%;
+    /* margin-left: 10%; */
+    /* width: 800px; */
+    z-index: 105;
+}
+
+.cke_toolbar {
+    .cke_button {
+        padding: 5px;
+    }
+}
+
+.cke_chrome {
+    // width: 76% !important;
+    overflow: hidden;
+}
+
+.ui-sortable tr {
+    cursor: move;
+}
+
+.admin_showreels .index_table .ui-sortable tr:nth-child(10n+3) td {
+    background: #8AC007;
+}
+
+.admin_showreels .index_table .ui-sortable tr:nth-child(10n+4) td {
+    background: #8AC007;
+}
+
+.changer_image_result,
+.changer_image_result_ru,
+.changer_image_result_ua {
+    max-width: 100%;
+}
+
+.galleries .has_many_fields>ol {
+    padding: 0;
+    width: 50%;
+}
+
+form fieldset>ol>li fieldset.galleries ol {
+    float: none;
+    width: auto;
+}
+
+.popup_holder {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    top: 0;
+    height: 100%;
+    left: 0;
+    z-index: 100;
+    padding-left: 0%;
+    overflow: auto;
+}
+
+.popup_holder .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+}
+
+.popup_holder .add_fields {
+    position: absolute;
+    width: 80%;
+    margin: 5% 10%;
+    /* margin-left: 10%; */
+    /* width: 800px; */
+    z-index: 101;
+}
+
+.cke {
+    // width: 1310px !important;
+    margin: 0 auto !important;
+}
+
+// textarea {
+//     min-height: 500px;
+//     width: 90% !important;
+// }
+.cke_chrome {
+    //  width: auto !important;
+}
+
+#partner_color,
+#adviser_color,
+select.color_chooser {
+    width: 100px;
+}
+
+select.color_chooser option[selected] {
+    background-color: #fff;
+}
+
+select.color_choose:hover {
+    background-color: #fff;
+}
+
+.popup_contacts_right {
+    background: #fff;
+    padding: 50px;
+    .person_contacts {
+        border: 1px solid grey;
+        padding: 20px;
+        margin: 20px;
+    }
+    li {
+        list-style: none;
+        input {
+            width: 400px;
+        }
+    }
+}
+.post_table {
+    clear: both;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-auto-rows: auto;
+    gap: 4px;
+    box-sizing: border-box;
+    padding: 8px 30px 8px 8px;
+    * {
+        box-sizing: border-box;
+    }
+    .post_table_left_column {
+        grid-column: 1 / 2;
+        width: auto;
+    }
+    .post_table_center_column {
+        grid-column: 2 / 3;
+        width: auto;
+    }
+    .post_table_left_column,
+    .post_table_center_column {
+        border: 1px solid #c5c5c5;
+        background-color: white;
+        padding: 8px 0;
+        border-radius: 5px;
+    }
+    .do_edit {
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #c5c5c5;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.75);
+        background-size: 18px 18px;
+        transition: background-color 0.25s;
+        &:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+    }
+    .has_many_delete {
+        right: 5px;
+        top: 40px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #c5c5c5;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.75);
+        background-size: 16px 16px;
+        transition: background-color 0.25s;
+        &:hover {
+            border-color: red;
+            background-color: rgb(255, 140, 140);
+        }
+    }
+}
+
+.handle.ui-sortable-handle,
+.do_edit,
+.has_many_delete {
+    z-index: 100;
+}

@@ -1,0 +1,99 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.fact {
+    display: block;
+
+    &-picture {
+        grid-template-columns: 100%;
+        grid-auto-rows: auto;
+    }
+
+    &-pic,
+    &-title {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+
+    &-pic {
+        z-index: 1;
+
+        .abs-cover-image {
+            z-index: 1;
+        }
+
+        &::before,
+        &::after {
+            z-index: 2;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            position: relative;
+            background: linear-gradient(73.99deg, #0E1B8A 0%, #ACDAF1 100.79%);
+            @supports (mix-blend-mode: hard-light) {
+                mix-blend-mode: hard-light;
+            }
+
+            padding-top: 87%;
+
+            @media screen and (min-width: $md) {
+                padding-top: 120%;
+            }
+            @media screen and (min-width: $xl) {
+                padding-top: 114%;
+            }
+            @media screen and (min-width: $xl) {
+                padding-top: 114%;
+            }
+        }
+
+        &::after {
+            @extend .abs-fill;
+            content: '';
+            background: linear-gradient(35.1deg, #00A0DF 0%, rgba(0, 160, 223, 0.5) 46.88%, rgba(0, 160, 223, 0) 100%);
+        }
+    }
+
+    &-title {
+        z-index: 2;
+        align-self: center;
+        color: var(--color-back);
+        padding: 0.5rem;
+
+        @media screen and (min-width: $md) {
+            padding: 1rem;
+        }
+
+        @media screen and (min-width: $xxl) {
+            padding: 1.5rem;
+        }
+
+    }
+
+    &-desc {
+        padding: 1rem 0.5rem 0;
+
+        @media screen and (min-width: $md) {
+            padding: 1.5rem 0.5rem 0;
+        }
+
+        @media screen and (min-width: $xl) {
+            padding: 1.5rem 1rem 0;
+        }
+
+        @media screen and (min-width: $xxl) {
+            padding: 1.5rem 1rem 0;
+        }
+
+
+        &-link {
+            padding-top: 1rem;
+        }
+    }
+
+
+}

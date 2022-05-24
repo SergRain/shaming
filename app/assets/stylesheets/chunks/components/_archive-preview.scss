@@ -1,0 +1,55 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.archive-preview {
+
+    &-date {
+        padding-bottom: 0.25rem;
+    }
+
+    &-head {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-title {
+        padding-right: 2rem;
+    }
+
+    &-tags {
+        padding-top: 0.75rem;
+    }
+
+    @media screen and (min-width: $md) {
+        &-date {
+            padding-bottom: 0.5rem;
+        }
+
+        &-title {
+            max-width: 75%;
+        }
+    }
+
+    @media screen and (min-width: $xl) {
+        &-date {
+            padding-bottom: 0.75rem;
+        }
+
+        &-title {
+            max-width: 70%;
+        }
+
+        &-tags {
+            padding-top: 1rem;
+        }
+    }
+
+    @media screen and (min-width: $xl) {
+        &-date {
+            padding-bottom: 1rem;
+        }
+    }
+}

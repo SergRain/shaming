@@ -1,0 +1,15 @@
+<% block = PostBlock.where(block_type: "what_do_to_help") %>
+<% if block.count > 0 %>
+<section id="help">
+      <div class="help__wrap container_small">
+        <h2 class="title">
+          <%= block.first.name %>
+        </h2>
+        <div class="help__text">
+        
+          <%= raw block.first.text.gsub("{{company_name}}", @post.name) %>
+        
+        </div>
+      </div>
+    </section>
+    <% end %>

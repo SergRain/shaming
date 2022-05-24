@@ -1,0 +1,35 @@
+<section id="fundation">
+      <div class="fundation__wrap container_small">
+        <h2 class="title">
+          <%= item.name %>
+        </h2>
+        <% item.post_sub_right_blocks.order(position: :asc).each do |block| %>
+       
+            <% if block.block_type == "text_image_right" %>
+                <div class="fundation__item">
+                    <div class="fundation__text">
+                        <%= raw block.text %>
+                    </div>
+                    <div class="fundation__image">
+                        <%= image_tag block.image, alt: "magazine" if block.image.attached? %>
+                    </div>
+                </div>
+            <% else %>
+                <div class="fundation__item reverse">
+                    <div class="fundation__image">
+                        <%= image_tag block.image, alt: "magazine" if block.image.attached? %>
+                    </div>
+                    <div class="fundation__text">
+                        <%= raw block.text %>
+                    </div>
+                    
+                </div>
+            <% end %>      
+        <% end %>
+        <div class="fundation__button">
+          <a href="#ask" class="orange_button">
+            HELP UKRAINE NOW
+          </a>
+        </div>
+      </div>
+    </section>

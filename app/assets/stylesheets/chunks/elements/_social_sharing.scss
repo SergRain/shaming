@@ -1,0 +1,90 @@
+@import "../vars";
+@import "../global";
+@import "../typography";
+
+.social-sharing {
+    &-header {
+        margin-bottom: 0.5rem;
+        color: var(--gray3);
+    }
+
+    &-list {
+        white-space: nowrap;
+    }
+
+    &-item {
+        display: inline-block;
+    }
+
+    &-item:not(:first-child) {
+        margin-left: 0.25rem;
+    }
+
+    &-link {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        position: relative;
+        font-size: 0;
+        overflow: hidden;
+        line-height: 1;
+
+        @media screen and (min-width: $xxl) {
+            width: 32px;
+            height: 32px;
+        }
+
+        &::before {
+            @extend .icon-font-size;
+            font-size: 14px;
+            line-height: 24px;
+
+            @media screen and (min-width: $xxl) {
+                font-size: 16px;
+                line-height: 32px;
+            }
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--color-back);
+            text-align: center;
+        }
+
+        &.facebook::before {
+            content: '\f0014';
+            background-color: #4A67AD;
+        }
+        &.youtube::before {
+            content: '\f0020';
+            background-color: #BA271A;
+        }
+        &.linkedin::before {
+            content: '\f0019';
+            background-color: #2D66BC;
+        }
+        &.telegram::before {
+            content: '\f001d';
+            background-color: #53A5DF;
+        }
+        &.twitter::before {
+            content: '\f001e';
+            background-color: #4EA0EB;
+        }
+        &.viber::before {
+            content: '\f0021';
+            background-color: #7D50AE;
+        }
+        &.link::before {
+            content: '\f0017';
+            background-color: #ACDAF1;
+        }
+
+
+
+    }
+}

@@ -1,0 +1,33 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 30
+  encoding: utf8mb4
+  collation: utf8mb4_bin
+
+development:
+  <<: *default
+  host: localhost
+  database: shaming
+  username: shaming
+  password: shaming
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+#  username: shaming
+#  password: shaming
+#  database: shaming
+
+production:
+  <<: *default
+  host: <%= ENV["DB_HOST"] %>
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  advisory_locks: false
+  variables:
+    sql_mode: TRADITIONAL

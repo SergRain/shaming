@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Нафтогаз</title>
+    <%= stylesheet_link_tag 'elfinder-theme.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'elfinder.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'jquery-ui.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery-1.9.js', 'data-turbolinks-track': 'reload' %>
+    <script>
+      $.fn.zIndex = function() {
+          return  $(this).css('z-index');
+       //  return this; //The magic statement
+      }
+      $.fn.zIndex = function(ind) {
+           $(this).css({'z-index': ind});
+         return this; //The magic statement
+      }
+    </script>
+    <%= javascript_include_tag "fm" %>
+    <%= javascript_include_tag "jquery_ui" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="active_admin">
+    <script type="text/javascript">
+      $(document).ready(function() {
+      	if(/MSIE 8/.test(window.navigator.userAgent)){
+      		$('body').addClass('msie');
+      	}
+      });
+    </script>
+    <%= yield %>
+  </body>
+</html>
