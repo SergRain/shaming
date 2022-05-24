@@ -311,7 +311,7 @@ GEM
       net-ssh (>= 2.8.0)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
-    strscan (3.0.1)
+    strscan (3.0.0)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (1.2.1)
@@ -379,6 +379,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  strscan (= 3.0.0)
   turbo-rails
   tzinfo-data
   web-console

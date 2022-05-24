@@ -73,7 +73,7 @@ gem "yt"
 
 
 #gem "io-wait", "0.1.0"
-#gem "strscan", "3.0.1"
+gem "strscan", "3.0.0"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
