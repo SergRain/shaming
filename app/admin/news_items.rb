@@ -30,7 +30,7 @@ ActiveAdmin.register NewsItem do
   end
 
   member_action :active do
-    elem = NewsItem.friendly.find(params[:id])
+    elem = NewsItem.find(params[:id])
     elem.update_column(:active, !elem.active)
     render js: elem.active ? "$('#active_#{elem.id}').attr('src','/assets/admin/on.png')" : "$('#active_#{elem.id}').attr('src','/assets/admin/off.png')"
   end
