@@ -22,7 +22,7 @@ set :log_level, :info
 set :conditionally_migrate, true
 
 set :linked_dirs, %w{log public/assets public/ckeditor_assets storage}
-set :linked_files, %w{.ruby-version public/robots.txt}
+set :linked_files, %w{.ruby-version public/robots.txt public/sitemap.xml}
 
 #SSHKit.config.command_map[:rake]  = "bundle exec rake"
 #SSHKit.config.command_map[:rails] = "bundle exec rails"
