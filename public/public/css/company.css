@@ -499,10 +499,14 @@ p {
 }
 
 .about_RHS__wrap {
-  padding-top: 150px !important;
   display: grid;
   grid-template-columns: 0.4fr 0.6fr;
   column-gap: 30px;
+}
+
+.ask__wrap.ch {
+  padding-top: 150px;
+  padding-bottom: 30px;
 }
 
 .triangle {
@@ -615,6 +619,21 @@ p {
 .card__bottom--list-item span {
   padding-left: 5px;
   line-height: 1.2;
+}
+.RHS_twitter_link, .naspers_twitter_link {
+  text-transform: initial;
+  display: flex;
+  max-width: 500px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}
+
+.twitter_icon {
+  width: 27px;
+  height: 27px;
+  margin-right: 10px;
 }
 
 @media screen and (min-width: 1601px) {
@@ -747,7 +766,10 @@ p {
     grid-template-columns: 1fr;
     column-gap: 30px;
     row-gap: 30px;
-    padding-top: 50px !important;
+  }
+  .ask__wrap.ch {
+    padding-top: 50px;
+    padding-bottom: 0;
   }
 }
 
@@ -873,6 +895,10 @@ p {
   .container_small {
     padding: 20px 30px;
   }
+  #responsible .container_small {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .companeis__list {
     grid-template-columns: 1fr;
   }
@@ -893,5 +919,16 @@ p {
     display: block;
     width: 80%;
     margin: 0 auto 20px;
+  }
+  .RHS_twitter_link, .naspers_twitter_link {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    display: flex;
+  }
+  .twitter_icon {
+    margin-right: 3px;
+    width: 23px;
+    height: 23px;
   }
 }

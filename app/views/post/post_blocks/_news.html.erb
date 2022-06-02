@@ -1,25 +1,27 @@
-<section id="news">
-    <div class="container">
-        <h2 class="title"><%= item.name %></h2>
+
+    <section id="news" class="type-1">
+      <div class="container">
+        <h3 class="subtitle">
+          <%= item.name %>
+        </h3>
         <div class="news-content">
-        <% @news.each do |item| %>
+<% @news.each do |item| %>
           <div class="news-block">
             <div class="news-block-img__wrap">
-            <%= image_tag item.image_resize("564x226"), alt: item.name %>
-              
+              <%= image_tag item.image_resize("564x360"), alt: item.name %>
               <div class="news-block-logo__wrap">
-              <%= image_tag item.image_resize("90x20", "logo"), alt: item.name, class: "news-block-logo" %>
+                <%= image_tag item.image_resize("90x25", "logo"), alt: item.name, class: "news-block-logo" %>
               </div>
             </div>
             <div class="news-block-body">
               <h3 class="news-block-title">
                 <%= item.name %>
               </h3>
-              <%= link_to "see_results", item.link, class: "news-block-link orange_button", target: :blank %>
-
+             <%= link_to "See results", item.link, class: "news-block-link", target: :blank %>
             </div>
           </div>
-          <% end %>
-          </div>
-          </div>
+<% end %>
+
+        </div>
+      </div>
     </section>

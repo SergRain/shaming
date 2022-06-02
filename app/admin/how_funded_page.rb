@@ -1,4 +1,5 @@
 ActiveAdmin.register_page "HowFunded" do
+  menu parent: "Templates"
   content :title => "How funded block content" do
     columns do
       pages = PostBlock.where(block_type: "how_war_funded").order(position: :asc)

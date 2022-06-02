@@ -33,9 +33,9 @@ ActiveAdmin.register Post do
       "https://dont-fund-russian.army/#{post.slug}.html"
     end
 
-    # column "Active" do |elem|
-    #   link_to image_tag(elem.active ? "/assets/admin/on.png" : "/assets/admin/off.png", id: "active_#{elem.id}"), "#{resource_path(elem)}/active", remote: true
-    # end
+    column "Active" do |elem|
+      link_to image_tag(elem.active ? "/assets/admin/on.png" : "/assets/admin/off.png", id: "active_#{elem.id}"), "#{resource_path(elem)}/active", remote: true
+    end
     actions
   end
 

@@ -20,5 +20,7 @@ module Shaming
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    require Rails.root.join("app/my_modules/custom_public_exceptions")
+    config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
   end
 end

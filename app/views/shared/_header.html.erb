@@ -1,5 +1,5 @@
 
-    <header>
+<header>
     <div class="header__wrap">
       <a href="/" class="logo">
         <%= image_tag "main_logo.svg", alt: "money" %>
@@ -7,9 +7,10 @@
       </a>
       <h3>Companies that support war</h3>
       <% if @post %>
-        <a href="#ask" class="orange_button">
-          ASK IN TWITTER
-        </a>
+       <a class="twitter_button" href="#ask">
+        <%= image_tag "twitter.svg", alt: "twitter", class: "twitter_icon" %>
+        <span>Share your position on Twitter</span>
+      </a>
       <% end %>
     </div>
   </header>

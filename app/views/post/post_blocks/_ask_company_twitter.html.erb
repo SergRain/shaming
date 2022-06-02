@@ -1,5 +1,5 @@
 <% random_tweet = item.post_sub_right_blocks.order("RAND()").first %>
-<section id='twitter'>
+<section id='twitter' class='<% if item.no_padding_bottom %>no_padding_bottom<% end %>'>
     <div class="ask__wrap">
         <h2  class="title">
           <%= item.name %>
@@ -9,9 +9,9 @@
             <%= image_tag item.image %>
         </div>
         <% end %>
-        <a id="twitter_button" class="orange_button" href="#" target="_blank"
-          data-text="<%= random_tweet.text %>">
-          <span>ask in twitter</span>
+        <a class="twitter_button twitter_link" href="#" target="_blank" data-text="<%= random_tweet.text %>">
+          <%= image_tag 'twitter.svg', class: 'twitter_icon', alt: "twitter" %>
+          <span>Share your position on Twitter</span>
         </a>
     </div>
 </section>

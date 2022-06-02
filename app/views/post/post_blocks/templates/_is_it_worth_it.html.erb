@@ -1,0 +1,16 @@
+<% block = PostBlock.where(block_type: "is_it_worth_it").first %>
+<section class="">
+    <div class="container">
+    <h3 class="subtitle"><%= block.name %></h3>
+        <div class="hero__info">
+            <div class="hero__info_text">
+                    <%= raw company_name(block.text, @post.name) %>
+	</li>
+</ul>
+            </div>
+            <div class="hero__info_text">
+                    <%= raw company_name(block.add_data, @post.name) %>
+            </div>
+        </div>
+    </div>
+</section>

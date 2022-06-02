@@ -1,0 +1,18 @@
+<section class='<% if item.no_padding_bottom %>no_padding_bottom<% end %>'>
+    <div class="container">
+    <% unless item.name.blank? %><h3 class="subtitle"><%= item.name %></h3><% end %>
+        <div class="hero__info">
+            <div class="hero__info_text">
+                <% item.post_sub_left_blocks.order(position: :asc).each do |block| %>
+                    <%= raw block.text %>
+                <% end %>
+            </div>
+
+            <div class="hero__info_text">
+                <% item.post_sub_right_blocks.order(position: :asc).each do |block| %>
+                    <%= raw block.text %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

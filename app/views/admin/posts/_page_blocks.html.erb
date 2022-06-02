@@ -1,8 +1,8 @@
 
-<% block_types = [["Text with list (right)", "text_with_list_right"], ["Text with list (bottom)", "text_with_list_bottom"], ["Text with images", "text_image"], ["News", "news"], ["Other companies", "other_companies"], ["Text", "text"], ["Ask company address", "ask_company_address"], ["Ask company twitter", "ask_company_twitter"], ["Template", "template"]]
+<% block_types = [["Text with 2 columns", "text_with_two_columns"], ["Text with list (right)", "text_with_list_right"], ["Text with list (bottom)", "text_with_list_bottom"], ["Text with images", "text_image"], ["News", "news"], ["Phrases", "people_phraase"], ["Other companies", "other_companies"], ["Text", "text"], ["Ask company address", "ask_company_address"], ["Ask company twitter", "ask_company_twitter"], ["Template", "template"]]
    left_blocks = [["Text", "text"], ["Image", "image"]]
    right_blocks = [["Text", "text"], ["Image", "image"], ["simple text", "simple_text"], ["text image right", "text_image_right"], ["text image left", "text_image_left"], ["Tweet", "tweet"]]
-   add_block_types = [["How war funded", "how_funded"], ["What do to help", "what_do_to_help"]]
+   add_block_types = [["How war funded", "how_funded"], ["What do to help", "what_do_to_help"], ["Is it worth it?", "is_it_worth_it"], ["Why does opertion in russian mean financing the war?", "why_means_financing"], ["Why does opertion in russian mean financing the war? (orange_blocks)", "why_means_financing_orange"], ["Shake hands", "shake_hands"]]
    # block_types = get_block_types_helper
    #  block_types.push(["Блок з персонами категорії", "managment"]) if f.object.class.to_s == "PersonCategory"
    #  block_types.push(["Блок з документами", "documents"]) if f.object.class.to_s == "DocumentCategory"
@@ -25,6 +25,7 @@
                 <div class="text_editor text_textarea"><a href="#">Edit text</a></div>
               </li>
       <% #cf.input :add_data, as: :boolean, input_html: { class: "on_blue_bg" } %>
+      <% cf.input :no_padding_bottom, as: :boolean, label: "No padding bottom" %>
       <% cf.input :image, input_html: { class: "block_image_input changer_image", accept: "image/*" }, as: :file, hint: image_tag(cf.object.image.attached? ? (cf.object.image) : "", class: "changer_image_result", id: "image_#{cf.object.id if cf.object.image.attached?}") %>
     </div>
     <div class='post_table'>
@@ -39,6 +40,7 @@
             </div>
             <div class='custom_form <% if cff.object.id %>hidden_block<% end %>'>
               <% cff.input :block_type, label: "Тип блоку", as: :select, collection: left_blocks, include_blank: false, input_html: { class: "block_type_input" } %>
+              <% cff.input :name, as: :string, label: "Name", input_html: { class: "name_input" } %>
               <div class="add_fields popup_fields popup" style="display:none">
                 <% cff.input :text, label: "Text", input_html: { class: "text_textarea" } %>
               </div>
@@ -63,6 +65,7 @@
             </div>
             <div class='custom_form <% if cff.object.id %>hidden_block<% end %>'>
               <% cff.input :block_type, label: "Тип блоку", as: :select, collection: right_blocks, include_blank: false, input_html: { class: "block_type_input" } %>
+              <% cff.input :name, as: :string, label: "Name", input_html: { class: "name_input" } %>
               <div class="add_fields popup_fields popup" style="display:none">
                 <% cff.input :text, label: "Текст (укр)", input_html: { class: "text_textarea" } %>
               </div>
@@ -72,8 +75,6 @@
               </li>
             
               <% cff.input :text, as: :string, label: "Текст", input_html: { class: "text_input" } %>
-             
-            
               <% cff.input :add_data, as: :string, label: "Посилання", input_html: { class: "add_data_input" } %>
               <% cff.input :image, label: "Картинка", as: :file, input_html: { class: "image_input changer_image" }, hint: image_tag(cff.object.image.attached? ? (cff.object.image) : "", class: "changer_image_result", id: "image_#{cff.object.id if cff.object.image.attached?}") %>
                </div>

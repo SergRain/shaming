@@ -1,0 +1,23 @@
+<section class="pers">
+
+      <div class="container">
+        <div class="pers__row">
+        <% @phrase.each do |item| %>
+          <div class="pers__item">
+            <div class="pers__img">
+            <%= image_tag item.image_resize("104x104", "logo"), alt: item.name %>
+            </div>
+
+            <div class="pers__text">
+              <div class="pers__name">
+                <%= item.name %>
+              </div>
+              <div class="pers__desc">
+                <%= item.text %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </section>

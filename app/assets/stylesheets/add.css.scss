@@ -2,12 +2,35 @@ section {
     margin-bottom: 60px;
     .container {
         padding: 0 90px;
+        li {
+            list-style: none;
+            position: relative;
+            padding: 10px 0 10px 25px;
+            width: 100%;
+        }
+        li::before {
+            position: absolute;
+            content: "▶";
+            color: var(--orange);
+            left: 0;
+        }
+        li ul li::before {
+            content: "●";
+            color: #000;
+        }
     }
     .container_small {
         padding: 0 120px;
+    }
+    &.no_padding_bottom {
+        margin-bottom: 0;
     }
 }
 
 #hero {
     padding-top: 120px;
+}
+
+#news.type-1 .news-block {
+    margin-top: 0;
 }

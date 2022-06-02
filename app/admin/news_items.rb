@@ -16,7 +16,7 @@ ActiveAdmin.register NewsItem do
       content_tag(:span, resource.name, "data-id" => resource.id, class: "sortable_rows")
     end
     column :image do |elem|
-      image_tag elem.image_resize("564x226")
+      image_tag elem.image_resize("282x180")
     end
     column :logo do |elem|
       image_tag elem.image_resize("90x20", "logo")

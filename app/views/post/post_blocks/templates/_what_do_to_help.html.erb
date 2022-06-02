@@ -7,7 +7,7 @@
         </h2>
         <div class="help__text">
         
-          <%= raw block.first.text.gsub("{{company_name}}", @post.name) %>
+          <%= raw company_name(block.first.text, @post.name) %>
         
         </div>
       </div>

@@ -1,0 +1,18 @@
+<% block = PostBlock.where(block_type: "shake_hands") %>
+<section class="shake">
+      <div class="container">
+        <div class="shake_wrap">
+          <div class="shake__row">
+
+            <h3 class="subtitle">
+             <%=raw company_name(block.first.add_data, @post.name).gsub('<span>','<span class="orange_text">')%>
+            </h3>
+
+            <div class="shake__text">
+              <%=raw company_name(block.first.text, @post.name).gsub('<span>','<span class="orange_text">')%>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>

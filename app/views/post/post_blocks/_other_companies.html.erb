@@ -1,31 +1,41 @@
 <% companies = item.post_sub_right_blocks.order(position: :asc).to_a
   first_company = companies.shift %>
 <section id="companies">
-      <div class="companies__wrap container">
-        <h3 class="subtitle">
-         <%= raw item.name %>
-        </h3>
-        <div class="companies__statment_wrap">
-            <%= image_tag first_company.image, alt: "logo" if first_company.image.attached? %>
+  <div class="companies__wrap container">
+    <h3 class="subtitle">
+      <%= raw item.name %>
+    </h3>
+    <div class="companies__statment_wrap type-1">
+      <%= image_tag first_company.image, alt: "logo" if first_company.image.attached? %>
+      <% unless first_company.name.blank? %>
+        <div class="companies__name_lg">
+          <%= first_company.name %>
+        </div>
+      <% end %>
+      <div class="green_button">
+        Withdrawn
+      </div>
+      <div class="companies__statment">
+        <%= raw first_company.text %>
+      </div>
+    </div>
 
+    <div class="companeis__list type-1">
+      <% companies.each do |company| %>
+        <div class="companies__item">
+          <div class="companies__img">
+            <%= image_tag company.image, alt: company.name if company.image.attached? %>
+          </div>
+          <% unless company.name.blank? %>
+            <div class="companies__name">
+              <%=raw company.name %>
+            </div>
+          <% end %>
           <div class="green_button">
             Withdrawn
           </div>
-
-          <div class="companies__statment">
-            <%= raw first_company.text %>
-          </div>
         </div>
-
-        <div class="companeis__list">
-        <% companies.each do |company| %>
-          <div class="companies__item">
-            <%= image_tag company.image, alt: "logo" if company.image.attached? %>
-            <div class="green_button">
-              Withdrawn
-            </div>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </section>
+      <% end %>
+    </div>
+  </div>
+</section>

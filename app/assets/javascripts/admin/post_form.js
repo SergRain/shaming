@@ -145,6 +145,23 @@ function rebuild_post_blocks_form() {
                 select_left.parent().hide();
                 select_right.val('simple_text')
                 select_right.parent().hide();
+            } else if (el.val() == 'text_with_two_columns') {
+                names.show();
+                left_column.show();
+                select_left.val('text')
+                select_left.parent().hide();
+                select_right.val('text')
+                select_right.parent().hide();
+            } else if (el.val() == 'orange_block') {
+                //names.show();
+                left_column.show();
+                select_left.val('orange')
+                select_left.parent().hide();
+                select_right.val('orange')
+                select_right.parent().hide();
+            } else if (el.val() == 'html') {
+                select_right.val('text')
+                select_right.parent().hide();
             } else if (el.val() == 'template') {
                 right_column.hide();
                 add_block_type.show();
@@ -159,18 +176,25 @@ function rebuild_post_blocks_form() {
                 names.show();
                 right_column.hide();
                 left_column.hide();
+            } else if (el.val() == 'people_phraase') {
+
+                right_column.hide();
+                left_column.hide();
             } else if (el.val() == 'other_companies') {
                 names.show();
                 left_column.hide();
                 select_right.val('text_image_left');
                 select_right.parent().hide();
+                sub_blocks.css('grid-column', '1/3');
             } else if (el.val() == 'text') {
                 names.show();
                 left_column.hide();
                 select_right.val('text')
                 select_right.parent().hide();
+                sub_blocks.css('grid-column', '1/3');
             } else if (el.val() == 'ask_company_address') {
                 names.show();
+                image.show();
                 text.show();
                 right_column.hide();
             } else if (el.val() == 'ask_company_twitter') {
@@ -178,17 +202,7 @@ function rebuild_post_blocks_form() {
                 image.show();
                 select_right.val('simple_text');
                 select_right.parent().hide();
-            } else if (el.val() == 'slide') {
-                [image, names].forEach(el => el.show());
-                select_right.val('infobuble');
-                select_right.parent().hide();
-                leads.find('label').html(leads.find('label').html().replace('Лід', 'Опис'));
                 sub_blocks.css('grid-column', '1/3');
-                h3_blocks.html('Блоки з цифрами');
-                subblock_buttons.html('Додати блок з цифрами');
-
-                // sub_name_text.html(sub_name_text.html().replace('Текст', 'Верхня строка'));
-                //sub_name_add_data.html(sub_name_add_data.html().replace('Значення', 'Нижня строка'));
             } else if (el.val() == 'slide_with_image') {
                 [image, names, leads].forEach(el => el.show());
                 right_column.hide();
@@ -209,163 +223,17 @@ function rebuild_post_blocks_form() {
 
                     //leads.show();
                 }
-                if (el.val() == 'video') {
-                    select_right.val('video');
-                    select_right.parent().hide();
-                    on_blue_bg.show();
 
-                }
-                if (el.val() == 'blue_blocks') {
-                    select_right.val('header');
-                    select_right.parent().hide();
-                }
-                if (el.val() == 'describe_block') {
-                    select_right.val('text');
-                    select_right.parent().hide();
-                }
-                if (el.val() == 'big_cards') {
-                    select_right.val('card');
-                    select_right.parent().hide();
-
-                }
-                if (el.val() == 'right_text') {
-                    //  select_right.val('text');
-                    //  select_right.parent().hide();
-                    on_blue_bg.show();
-                    blue_border_top.show();
-                    select_right.find('option[value="infobuble"]').remove();
-                    select_right.find('option[value="image_with_quote"]').remove();
-                    select_right.find('option[value="video"]').remove();
-                    select_right.find('option[value="header"]').remove();
-                    select_right.find('option[value="outer_block"]').remove();
-                    select_right.find('option[value="card"]').remove();
-                    select_right.find('option[value="image_with_caption"]').remove();
-                }
-
-                // if (el.val() == 'managment') {
-                //     select_right.val('video');
-                //     select_right.parent().hide();
-                // }
-                // if (el.val() == 'managment') {
-                //     select_right.val('managment');
-                //     select_right.parent().hide();
-                // }
-            } else if (el.val() == 'managment') {
-                right_column.hide();
             } else if (el.val() == 'image_with_text') {
                 right_column.hide();
                 [names, image, leads].forEach(el => el.show());
                 sub_blocks.css('grid-column', '1/3');
 
-            } else if (el.val() == 'documents') {
-                right_column.hide();
-                [names].forEach(el => el.show());
-                documents.show();
 
-            } else if (el.val() == 'two_columns') {
-                sub_blocks.css('grid-column', '2/3');
-                left_column.show();
-                on_blue_bg.show();
-                // select_right.val('text');
-                // select_right.parent().hide();
-                [names].forEach(el => el.show());
-                blue_border_top.show();
-                select_right.find('option[value="infobuble"]').remove();
-                select_right.find('option[value="image_with_quote"]').remove();
-                select_right.find('option[value="video"]').remove();
-                select_right.find('option[value="header"]').remove();
-                select_right.find('option[value="outer_block"]').remove();
-                select_right.find('option[value="card"]').remove();
-                select_right.find('option[value="image_with_caption"]').remove();
-            } else if (el.val() == 'two_columns_with_files') {
-                sub_blocks.css('grid-column', '2/3');
-                show_share_top.show();
-                left_column.show();
-                // on_blue_bg.show();
-                [names].forEach(el => el.show());
-                select_right.find('option[value="infobuble"]').remove();
-                select_right.find('option[value="image_with_quote"]').remove();
-                select_right.find('option[value="video"]').remove();
-                select_right.find('option[value="header"]').remove();
-                select_right.find('option[value="outer_block"]').remove();
-                select_right.find('option[value="card"]').remove();
-                select_right.find('option[value="image_with_caption"]').remove();
-                select_left.find('option[value="header"]').remove();
-                select_left.find('option[value="text"]').remove();
-                select_left.find('option[value="image"]').remove();
-                remove_file_left = false;
-            } else if (el.val() == 'report_person') {
-                left_column.show();
-                [names].forEach(el => el.show());
-                select_right.val('text');
-                select_right.parent().hide();
-                select_left.val('person');
-                select_left.parent().hide();
-                select_right.find('option[value="numbers"]').remove();
-                set_subblocks_labeles(select_left.closest('.content_post_sub_block'), 'ПІБ', 'Посада');
-            } else if (el.val() == 'report_file') {
-                left_column.show();
-                select_left.find('option[value="person"]').remove();
-                select_right.find('option[value="numbers"]').remove();
-
-                if (document.location.href.match('pages')) {
-                    //new remover in page
-                    [names].forEach(el => el.show());
-                    select_left.find('option[value="header"]').remove();
-                    select_right.find('option[value="infobuble"]').remove();
-                    select_right.find('option[value="image_with_quote"]').remove();
-                    select_right.find('option[value="video"]').remove();
-                    select_right.find('option[value="header"]').remove();
-                    select_right.find('option[value="outer_block"]').remove();
-                    select_right.find('option[value="card"]').remove();
-                    select_right.find('option[value="image_with_caption"]').remove();
-                    select_right.find('option[value="file"]').remove();
-                }
-            } else if (el.val() == 'two_columns_blue_blocks_right') {
-                sub_blocks.css('grid-column', '2/3');
-                left_column.show();
-                select_left.val('header');
-                select_left.parent().hide();
-                select_right.val('header');
-                select_right.parent().hide();
-                on_blue_bg.show();
-            } else if (el.val() == 'right_text_with_numbers') {
-                sub_blocks.css('grid-column', '2/3');
-                [names].forEach(el => el.show());
-                select_right.val('numbers');
-                select_right.parent().hide();
-            } else if (el.val() == 'history') {
-                block.find('.block_name_input_name_uk').parent().show();
-                block.find('.block_name_input_name_uk').parent().find('label').html('Рік');
-                // select_left.append("<option value='year'>Рік</option>");
-                left_column.show();
-                select_right.val('image_with_caption');
-                select_right.parent().hide();
-                select_left.val('text')
-                select_left.parent().hide();
-            } else if (el.val() == 'history_header') {
-                [names, leads].forEach(el => el.show());
-                right_column.hide();
-            } else if (el.val() == 'history_wild') {
-                sub_blocks.css('grid-column', '1/3');
-                select_right.find('option[value="header"]').remove();
-                select_right.find('option[value="infobuble"]').remove();
-                select_right.find('option[value="video"]').remove();
-                select_right.find('option[value="outer_block"]').remove();
-                select_right.find('option[value="text_with_header"]').remove();
-                select_right.find('option[value="file"]').remove()
-                select_right.find('option[value="card"]').remove();
-                select_right.find('option[value="image_with_caption"]').remove();
-                // select_right.append("<option value='image_with_quote'>Картинка з цитатою</option>");
             } else if (el.val() == 'news_category') {
                 news_categories.show();
                 [names].forEach(el => el.show());
                 right_column.hide();
-            } else if (el.val() == '4blocks_grid') {
-                sub_blocks.css('grid-column', '1/3');
-                select_right.val('text_with_header');
-                select_right.parent().hide();
-                [names].forEach(el => el.show());
             }
             if (remove_file_left) {
                 select_left.find('option[value="file"]').remove();
@@ -375,7 +243,7 @@ function rebuild_post_blocks_form() {
         function change_sub_block_fields(el) {
             var block = el.closest('.custom_form');
             var text = block.find('.text_input');
-
+            var name = block.find('.name_input').parent();
             var text_textarea = block.find('.text_textarea');
 
             var image = block.find('.image_input').parent();
@@ -391,7 +259,7 @@ function rebuild_post_blocks_form() {
             // var input_for_managment = block.find('.input_for_managment').parent();
             // var input_for_news_id = block.find('.news_item_module_id');
 
-            [image, add_data, add_text].forEach(el => el.hide());
+            [image, add_data, add_text, name].forEach(el => el.hide());
             [text, text_textarea].forEach(el => el.parent().hide());
             [text, text_textarea].forEach(el => el.removeAttr('disabled'));
             // input_for_managment.find('select').attr('disabled', 'disabled');
@@ -403,6 +271,7 @@ function rebuild_post_blocks_form() {
                 image.show();
             } else if (el.val() == 'text_image_right' || el.val() == 'text_image_left') {
                 image.show();
+                name.show();
                 text.attr('disabled', 'disabled');
                 text_textarea.parent().show();
             } else if (el.val() == 'simple_text') {
@@ -429,14 +298,6 @@ function rebuild_post_blocks_form() {
                 text_en.parent().show();
                 text_textarea.attr('disabled', 'disabled');
                 text_en_textarea.attr('disabled', 'disabled');
-            } else if (el.val() == 'year') {
-                text.parent().show();
-                text_en.parent().show();
-                text_textarea.attr('disabled', 'disabled');
-                text_en_textarea.attr('disabled', 'disabled');
-                //add_text.show();
-                set_subblocks_labeles(el.closest('.content_post_sub_block'), 'Опис', 'Опис');
-
             } else if (el.val() == 'outer_block') {
                 text.parent().show();
                 text_en.parent().show();
@@ -454,26 +315,12 @@ function rebuild_post_blocks_form() {
                 add_text.show();
                 image.show();
                 set_subblocks_labeles(el.closest('.content_post_sub_block'), 'Назва', 'Опис');
-            } else if (el.val() == 'numbers') {
-                text.parent().show();
-                text_en.parent().show();
-                text_textarea.attr('disabled', 'disabled');
-                text_en_textarea.attr('disabled', 'disabled');
-                add_text.show();
-            } else if (el.val() == 'person') {
-                text.parent().show();
-                text_en.parent().show();
-                text_textarea.attr('disabled', 'disabled');
-                text_en_textarea.attr('disabled', 'disabled');
-                add_text.show();
-                image.show();
-
             } else if (el.val() == 'header') {
                 text.parent().show();
                 text_en.parent().show();
                 text_textarea.attr('disabled', 'disabled');
                 text_en_textarea.attr('disabled', 'disabled');
-            } else if (el.val() == 'text') {
+            } else if (el.val() == 'text' || el.val() == 'orange') {
                 text.attr('disabled', 'disabled');
                 // text_en.attr('disabled', 'disabled');
                 text_textarea.parent().show();

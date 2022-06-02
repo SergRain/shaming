@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_23_122157) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_01_150427) do
   create_table "active_admin_comments", charset: "utf8", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -103,6 +103,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_122157) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "people_phraases", charset: "utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "text"
+    t.boolean "active"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "post_blocks", charset: "utf8", force: :cascade do |t|
     t.string "block_type"
     t.text "text"
@@ -115,6 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_122157) do
     t.integer "module_id"
     t.string "blockable_type"
     t.integer "blockable_id"
+    t.boolean "no_padding_bottom", default: false
   end
 
   create_table "post_sub_blocks", charset: "utf8", force: :cascade do |t|

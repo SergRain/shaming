@@ -1,4 +1,5 @@
 ActiveAdmin.register_page "What do to help" do
+  menu parent: "Templates"
   content :title => "What do to help page" do
     columns do
       popup_data = PostBlock.where(block_type: "what_do_to_help").first_or_create
