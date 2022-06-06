@@ -7,7 +7,9 @@
     </h3>
     <div class="companies__statment_wrap type-1">
       <%= image_tag first_company.image, alt: "logo" if first_company.image.attached? %>
-      <% unless first_company.name.blank? %>
+      <% if first_company.name.blank? %>
+      <div class="companies__name_lg"></div>
+      <% else %>
         <div class="companies__name_lg">
           <%= first_company.name %>
         </div>

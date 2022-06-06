@@ -21,9 +21,9 @@ ActiveAdmin.register Post do
     column :name
     column :logo do |post|
       if post.logo.attached?
-        image_tag post.logo
+        image_tag post.logo, width: 200
       elsif post.logo_url
-        image_tag post.logo_url
+        image_tag post.logo_url, width: 200
       else
         ""
       end
