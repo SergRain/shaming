@@ -37,7 +37,7 @@
     <%= yield %>
     <%= render request.path == "/" ? "shared/footer" : "shared/footer_company" %>
     <%= javascript_include_tag "/js/swiper-bundle.min.js" %>
-    <%= javascript_include_tag "/js/index.js" %>
+    <% javascript_include_tag "/js/index.js" %>
 </body>
 
 </html>

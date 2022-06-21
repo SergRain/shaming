@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    get_seo
+    render file: "public/static/index.html", layout: false
+    #get_seo
   end
 end
