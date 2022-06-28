@@ -14,6 +14,7 @@
           <div id="tabs-1" class="tabs-1">
             <%= f.inputs class: "inputs" do %>
               <%= f.input :name %>
+              <%= f.input :site_lang %>
               <%= f.input :slug %>
               <%= f.input :logo, as: :hidden, input_html: { value: f.object.logo.signed_id } if f.object.logo.attached? %>
               <%= f.input :logo, input_html: { class: "changer_image", direct_upload: true, accept: "image/*" }, as: :file, hint: image_tag(f.object.logo.attached? ? f.object.logo : "", class: "changer_image_result", id: "image_#{f.object.id if f.object.logo.attached?}") %>

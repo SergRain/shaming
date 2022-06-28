@@ -45,7 +45,7 @@
         <% begin %>
           <%= render partial: "/post/post_blocks/#{block.block_type}", locals: { item: block } %>
           <% rescue %>
-          <%= block.block_type %>
+          <% block.block_type %>
           <% end %>
         <% end %>
   </main>

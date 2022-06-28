@@ -13,7 +13,12 @@
             </div>
             <div class="news-block-body">
               <h3 class="news-block-title">
-                <%= item.name %>
+                <% if @lang %>
+                123123
+                  <%= item.lang_options.where(site_lang: @lang).first.value %>
+                <% else %>
+                  <%= item.name %>
+                <% end %>
               </h3>
               <%= link_to "see_results", item.link, class: "news-block-link orange_button", target: :blank %>
 

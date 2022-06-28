@@ -8,6 +8,13 @@ ActiveAdmin.register NewsItem do
     def permitted_params
       params.permit!
     end
+
+    def new
+      @news_item = NewsItem.new
+      SiteLang.all.each_with_index do |field, i|
+        @news_item.lang_options << LangOption.new(name: "name", site_lang: field)
+      end
+    end
   end
 
   index do
@@ -42,23 +49,32 @@ ActiveAdmin.register NewsItem do
     end
     head 200
   end
+  # form do |f|
+  #   if f.object.errors.size > 0
+  #     f.inputs "Помилки", class: "form_errors" do
+  #       f.object.errors.full_messages.join("<br />").html_safe
+  #     end
+  #   end
+  #   f.inputs do
+  #     f.input :name
+  #     f.inputs do
+  #       f.has_many :lang_options do |cf|
+  #         cf.inputs "" do
+  #           cf.input :name
+  #           cf.input :value
+  #           cf.input :site_lang
+  #         end
+  #       end
+  #     end
+  #     f.input :link
 
-  form do |f|
-    if f.object.errors.size > 0
-      f.inputs "Помилки", class: "form_errors" do
-        f.object.errors.full_messages.join("<br />").html_safe
-      end
-    end
-    f.inputs do
-      f.input :name
-      f.input :link
-
-      f.input :image, as: :hidden, input_html: { value: f.object.image.signed_id, id: "hidden_image_#{f.object.id}" } if f.object.image.attached?
-      f.input :image, input_html: { class: "changer_image" }, as: :file, hint: image_tag(f.object.image.attached? ? f.object.image : "", class: "changer_image_result")
-      f.input :logo, as: :hidden, input_html: { value: f.object.logo.signed_id, id: "hidden_image_#{f.object.id}" } if f.object.logo.attached?
-      f.input :logo, input_html: { class: "changer_image" }, as: :file, hint: image_tag(f.object.logo.attached? ? f.object.logo : "", class: "changer_image_result")
-      f.input :active
-    end
-    f.actions
-  end
+  #     f.input :image, as: :hidden, input_html: { value: f.object.image.signed_id, id: "hidden_image_#{f.object.id}" } if f.object.image.attached?
+  #     f.input :image, input_html: { class: "changer_image" }, as: :file, hint: image_tag(f.object.image.attached? ? f.object.image : "", class: "changer_image_result")
+  #     f.input :logo, as: :hidden, input_html: { value: f.object.logo.signed_id, id: "hidden_image_#{f.object.id}" } if f.object.logo.attached?
+  #     f.input :logo, input_html: { class: "changer_image" }, as: :file, hint: image_tag(f.object.logo.attached? ? f.object.logo : "", class: "changer_image_result")
+  #     f.input :active
+  #   end
+  #   f.actions
+  # end
+  form partial: "form"
 end

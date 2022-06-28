@@ -1,4 +1,5 @@
 class PostBlock < ApplicationRecord
+  include Langable
   #belongs_to :post
   has_one_attached :image
   has_many_attached :gallery

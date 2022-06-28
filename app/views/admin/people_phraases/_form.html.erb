@@ -1,0 +1,50 @@
+
+<%= semantic_form_for [:admin, resource], builder: ActiveAdmin::FormBuilder do |f| %>
+    <%= f.semantic_errors %>
+    <% resource.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+
+    <%= f.inputs do %>
+    <%= f.input :name %>
+     <div class="tabs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="tabs-1"><a href="#tabs-1">Default lang</a></li>
+          <% SiteLang.all.each do |l| %>
+            <li class="tabs-2"><a href="#tabs_<%= l.id %>"><%= l.name %></a></li>
+          <% end %>
+        </ul>
+        <div class="tabs_content">
+          <div id="tabs-1" class="tabs-1">
+            <%= f.inputs class: "inputs" do %>
+              <%= f.input :text %>   
+            <% end %>       
+          </div>
+          <% SiteLang.all.each do |l| %>
+          <% lopt = @people_phraase.lang_options.where(name: "text", site_lang: l).first_or_initialize %>
+          <div id="tabs_<%= l.id %>">
+          <input type='hidden' name='people_phraase[lang_options_attributes][<%= lopt.id %>][name]' value='text'>
+          <input type='hidden' name='people_phraase[lang_options_attributes][<%= lopt.id %>][site_lang_id]' value='<%= l.id %>'>
+          <input type='hidden' name='people_phraase[lang_options_attributes][<%= lopt.id %>][id]' value='<%= lopt.id %>'>
+          <li class="input"><fieldset class="inputs"><ol>
+              <li class="string input optional stringish" id="news_item_name_input"><label for="news_item_name" class="label">Text</label>
+              <input type='text' name='people_phraase[lang_options_attributes][<%= lopt.id %>][value]' value='<%= lopt.value %>'>
+              </li>   
+            </ol></fieldset></li>
+          </div>
+          <% end %>
+        </div>
+      </div>
+        
+             
+        <%= f.input :logo, as: :hidden, input_html: { value: f.object.logo.signed_id } if f.object.logo.attached? %>
+        <%= f.input :logo, input_html: { class: "changer_image", direct_upload: true, accept: "image/*" }, as: :file, hint: image_tag(f.object.logo.attached? ? f.object.logo : "", class: "changer_image_result", id: "image_#{f.object.id if f.object.logo.attached?}") %>
+        <%= f.input :active %>
+
+      <% end %>
+
+        <div class="action_section">
+          <%= f.actions %>
+        </div>
+
+      <% end %>

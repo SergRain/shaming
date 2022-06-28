@@ -3,11 +3,11 @@
 <section id="help">
       <div class="help__wrap container_small">
         <h2 class="title">
-          <%= block.first.name %>
+          <%= lang_helper(block.first, "name") %>
         </h2>
         <div class="help__text">
         
-          <%= raw company_name(block.first.text, @post.name) %>
+          <%= raw company_name(lang_helper(block.first, "text"), @post.name) %>
         
         </div>
       </div>

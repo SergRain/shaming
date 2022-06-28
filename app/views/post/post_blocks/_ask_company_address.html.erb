@@ -1,23 +1,23 @@
 <section id="ask" class='type-1 <% if item.no_padding_bottom %>no_padding_bottom<% end %>'>
-    <div class="ask__wrap">
-        <h2 class="title">
-          <%= item.name %>
-        </h2>
+  <div class="ask__wrap">
+      <h2 class="title">
+        <%= item.name %>
+      </h2>
 
-        <div class="ask__company_info">
-          <div>
-            <% if item.image.attached? %>
-              <%= image_tag item.image, alt: "logo" %>
-            <% elsif @post.logo.attached? %>
-                <%= image_tag @post.logo, alt: "logo" %>
-            <% elsif !@post.logo_url.blank? %>
-                <%= image_tag @post.logo_url, alt: "logo" %>
-            <% else %>
-            <% end %>
-          </div>
-          <div>
-              <%= raw item.text %>
-          </div>
+      <div class="ask__company_info">
+        <div>
+          <% if item.image.attached? %>
+            <%= image_tag item.image, alt: "logo" %>
+          <% elsif @post.logo.attached? %>
+              <%= image_tag @post.logo, alt: "logo" %>
+          <% elsif !@post.logo_url.blank? %>
+              <%= image_tag @post.logo_url, alt: "logo" %>
+          <% else %>
+          <% end %>
         </div>
-    </div>
+        <div>
+            <%= raw item.text %>
+        </div>
+      </div>
+  </div>
 </section>

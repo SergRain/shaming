@@ -8,6 +8,13 @@ ActiveAdmin.register PeoplePhraase do
     def permitted_params
       params.permit!
     end
+
+    #     def new
+    #   @people_phraase = PeoplePhraase.new
+    #   SiteLang.all.each_with_index do |field, i|
+    #     @people_phraase.lang_options << LangOption.new(name: "text", site_lang: field)
+    #   end
+    # end
   end
 
   index do
@@ -41,20 +48,21 @@ ActiveAdmin.register PeoplePhraase do
     head 200
   end
 
-  form do |f|
-    if f.object.errors.size > 0
-      f.inputs "Помилки", class: "form_errors" do
-        f.object.errors.full_messages.join("<br />").html_safe
-      end
-    end
-    f.inputs do
-      f.input :name
-      f.input :text
+  # form do |f|
+  #   if f.object.errors.size > 0
+  #     f.inputs "Помилки", class: "form_errors" do
+  #       f.object.errors.full_messages.join("<br />").html_safe
+  #     end
+  #   end
+  #   f.inputs do
+  #     f.input :name
+  #     f.input :text
 
-      f.input :logo, as: :hidden, input_html: { value: f.object.logo.signed_id, id: "hidden_image_#{f.object.id}" } if f.object.logo.attached?
-      f.input :logo, input_html: { class: "changer_image" }, as: :file, hint: image_tag(f.object.logo.attached? ? f.object.logo : "", class: "changer_image_result")
-      f.input :active
-    end
-    f.actions
-  end
+  #     f.input :logo, as: :hidden, input_html: { value: f.object.logo.signed_id, id: "hidden_image_#{f.object.id}" } if f.object.logo.attached?
+  #     f.input :logo, input_html: { class: "changer_image" }, as: :file, hint: image_tag(f.object.logo.attached? ? f.object.logo : "", class: "changer_image_result")
+  #     f.input :active
+  #   end
+  #   f.actions
+  # end
+  form partial: "form"
 end

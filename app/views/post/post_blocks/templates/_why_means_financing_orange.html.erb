@@ -4,29 +4,29 @@
       <div class="container">
 
         <h3 class="subtitle">
-          <%= block.name %>
+          <%= lang_helper(block, "name") %>
         </h3>
 
         <div class="hero__info">
           <div class="hero__info_text">
-           <%= raw company_name(block.text, @post.name) %>
+           <%= raw company_name(lang_helper(block, "text"), @post.name) %>
           </div>
 
           <div class="hero__info_text">
-            <%= raw company_name(block.add_data, @post.name) %>
+            <%= raw company_name(lang_helper(block, "add_data"), @post.name) %>
           </div>
         </div>
 
         <div class="hero__info pd_bottom_off ">
           <div class="hero__block">
             <div class="hero__block_text">
-             <%= raw company_name(block1.text, @post.name) %>
+             <%= raw company_name(lang_helper(block1, "text"), @post.name) %>
             </div>
           </div>
 
           <div class="hero__block">
             <div class="hero__block_text">
-              <%= raw company_name(block1.add_data, @post.name) %>
+              <%= raw company_name(lang_helper(block1, "add_data"), @post.name) %>
             </div>
           </div>
         </div>

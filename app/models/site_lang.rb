@@ -1,0 +1,2 @@
+class SiteLang < ApplicationRecord
+end

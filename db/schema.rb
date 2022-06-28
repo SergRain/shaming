@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_150427) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_28_113506) do
   create_table "active_admin_comments", charset: "utf8", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -94,6 +94,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_150427) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lang_options", charset: "utf8", force: :cascade do |t|
+    t.bigint "site_lang_id", null: false
+    t.string "name"
+    t.text "value"
+    t.string "langable_type", null: false
+    t.bigint "langable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["langable_type", "langable_id"], name: "index_lang_options_on_langable"
+    t.index ["site_lang_id"], name: "index_lang_options_on_site_lang_id"
+  end
+
   create_table "news_items", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "link"
@@ -152,6 +164,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_150427) do
     t.string "logo_url"
     t.string "company_twitter"
     t.string "ga"
+    t.integer "site_lang_id"
   end
 
   create_table "site_configs", charset: "utf8", force: :cascade do |t|
@@ -161,9 +174,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_150427) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "site_langs", charset: "utf8", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "companies", "company_industries"
   add_foreign_key "companies", "company_statuses"
+  add_foreign_key "lang_options", "site_langs"
   add_foreign_key "post_sub_blocks", "post_blocks"
 end
