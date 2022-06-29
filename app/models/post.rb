@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   belongs_to :site_lang, optional: true
 
   def slug_candidates
-    ["#{self.name}", "#{self.name}_#{self.site_lang.name}"]
+    ["#{self.name}", "#{self.name}_#{self.site_lang ? self.site_lang.name : self.id}"]
   end
 
   def should_generate_new_friendly_id?
