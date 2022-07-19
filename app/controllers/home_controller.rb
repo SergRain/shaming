@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     render file: "public/static/index.html", layout: false
     #get_seo
