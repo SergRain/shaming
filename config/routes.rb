@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   match "elfinder", to: "fm#elfinder", via: :all
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  post "/send_email", to: "home#send_email"
+
   # Defines the root path route ("/")
   get "/:post_id.html", to: "post#show", constraints: lambda { |request| Post.where(slug: request[:post_id]).where(active: true).any? }
   get "/index.html", to: "home#index"
