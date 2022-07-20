@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   end
 
   def send_email
-    ApplicationMailer.send_mail(params[:text], params[:page_from]).deliver_now
+    
+    ApplicationMailer.send_mail(request.raw_post).deliver_now
     render plain: true
   end
 end
